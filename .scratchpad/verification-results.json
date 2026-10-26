@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "purpose": "Correctness only; these checks make no performance claim.",
+  "python": "3.11.0",
+  "machine": "arm64",
+  "seed": "0x584255",
+  "checks": {
+    "square_bits_all_unsigned_16bit_values": 65536,
+    "square_set_bits_all_unsigned_16bit_values": 65536,
+    "square_recursive_all_unsigned_16bit_values": 65536,
+    "quarter_square_table_entries": 511,
+    "midpoint_bit_square_outputs_all_ordered_8bit_pairs": 65536,
+    "midpoint_set_bit_square_outputs_all_ordered_8bit_pairs": 65536,
+    "midpoint_recursive_square_outputs_all_ordered_8bit_pairs": 65536,
+    "quarter_square_all_ordered_8bit_pairs": 65536,
+    "overflow_free_average_all_ordered_8bit_pairs": 65536,
+    "square_bits_deterministic_large_and_boundary_values": 333,
+    "square_set_bits_deterministic_large_and_boundary_values": 333,
+    "square_recursive_deterministic_large_and_boundary_values": 333,
+    "midpoint_bit_algorithm_large_and_boundary_pairs": 961,
+    "midpoint_set_bit_algorithm_large_and_boundary_pairs": 961,
+    "midpoint_recursive_algorithm_large_and_boundary_pairs": 961,
+    "overflow_free_average_large_and_boundary_pairs": 961
+  },
+  "maximum_tested_square_input_bits": 4097,
+  "maximum_tested_product_operand_bits": 4097,
+  "maximum_random_width_bits": 4096,
+  "coverage": [
+    "All ordered unsigned eight-bit input pairs",
+    "All unsigned sixteen-bit values for all three square routines",
+    "Zero, equal inputs, reversed inputs, all four parity classes",
+    "Powers of two, neighboring values, maximum fixed-width values",
+    "Nearby and highly unequal inputs, deterministic random inputs",
+    "Sparse, alternating, and dense bits; sparse inputs with dense half-differences",
+    "Integer average remains within the original operand width"
+  ],
+  "notes": [
+    "The exhaustive product sweep caches each square routine's outputs.",
+    "Large and boundary product cases invoke each square routine directly.",
+    "Boundary values just above 2^4096 have 4097 bits.",
+    "A successful finite check supports, but does not replace, the algebraic proof."
+  ]
+}

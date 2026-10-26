@@ -1,0 +1,25 @@
+{
+  "compiler_command": "clang -O3 -std=c11 -S .scratchpad/bench_small.c -o .scratchpad/small-bench.s",
+  "architecture": "ARM64",
+  "multiply_instructions_by_kernel": {
+    "square_recursive": [],
+    "call_floor": [],
+    "native_mul": [
+      "umull\tx0, w1, w0"
+    ],
+    "shift_add": [],
+    "sparse_multiply": [],
+    "software_karatsuba": [],
+    "square_plus_delta": [],
+    "equal_aware_recursive": [],
+    "equal_aware_table16": [],
+    "midpoint_prefix": [],
+    "midpoint_set_bits": [],
+    "midpoint_recursive": [],
+    "midpoint_table8": [],
+    "midpoint_table16": [],
+    "quarter_table8": [],
+    "full_product_table8": []
+  },
+  "scope": "Arithmetic kernels only. Native baseline intentionally uses multiplication. Timing, oracle, dataset generation, and table construction excluded."
+}

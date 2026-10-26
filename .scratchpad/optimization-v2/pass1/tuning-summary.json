@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "scope": "host-only tuning; no target-device claim",
+  "search": "two-pass coordinate descent; >=3% training improvement required",
+  "groups": 7, "training_cells": 30, "held_out_cells": 30, "pairs_per_cell": 4,
+  "training_seeds": [1905500701, 1136221799],
+  "held_out_seeds": [2978208117, 795626113],
+  "candidates_measured": 18, "selected_candidate": 5,
+  "baseline": {"leaf_bits": 64, "sparse_limit": 8, "dense_complement": 1, "block_ratio": 4},
+  "selected": {"leaf_bits": 32, "sparse_limit": 0, "dense_complement": 1, "block_ratio": 4},
+  "training_time_ratio": 0.646322479, "held_out_time_ratio": 0.640713950,
+  "training_baseline_end_to_start_ratio": 0.999619711,
+  "held_out_group_time_ratios": {
+    "balanced": 0.510874900,
+    "equal": 0.509105640,
+    "near": 0.515649333,
+    "skew": 0.512781987,
+    "sparse_square": 1.460107598,
+    "dense_square": 0.594069677,
+    "small_square": 0.743048762
+  }
+}

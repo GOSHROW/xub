@@ -1,0 +1,3628 @@
+{
+  "status": "passed",
+  "purpose": "Operation vectors; not timings, cycles, or weighted performance scores.",
+  "seed": "0x434F5354",
+  "limb_bits": 32,
+  "square_leaf_bits": 8,
+  "square_table_native_bytes": 512,
+  "case_count": 128,
+  "limitations": [
+    "One deterministic pair per width and pattern; not a distributional benchmark.",
+    "Limb spans are operand widths, not measured memory accesses or instructions.",
+    "Counts omit comparison, bit-length, control-flow, allocation, cache, and call costs.",
+    "Each vector applies only to the stated implementations and shortcuts.",
+    "Direct Karatsuba uses zero/one/equality/short-operand shortcuts; midpoint is literal.",
+    "No combined scalar cost or target-device speed estimate is implied."
+  ],
+  "rows": [
+    {
+      "width": 64,
+      "pattern": "balanced_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        33,
+        35
+      ],
+      "square_argument_popcounts": [
+        26,
+        27
+      ],
+      "square_argument_bits": [
+        64,
+        59
+      ],
+      "counts": {
+        "add_sub_calls": 133,
+        "add_sub_input_limb_spans": 167,
+        "left_shift_calls": 52,
+        "left_shift_output_limb_spans": 74,
+        "recursive_square_calls": 80,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 2,
+        "split_calls": 26,
+        "split_input_limb_spans": 28,
+        "square_table_lookups": 54
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "balanced_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        33,
+        35
+      ],
+      "square_argument_popcounts": [
+        26,
+        27
+      ],
+      "square_argument_bits": [
+        64,
+        59
+      ],
+      "counts": {
+        "add_sub_calls": 109,
+        "add_sub_input_limb_spans": 300,
+        "boolean_calls": 159,
+        "boolean_input_limb_spans": 398,
+        "left_shift_calls": 106,
+        "left_shift_output_limb_spans": 320,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 2,
+        "set_bit_square_iterations": 53
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "balanced_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        33,
+        35
+      ],
+      "square_argument_popcounts": [
+        26,
+        27
+      ],
+      "square_argument_bits": [
+        64,
+        59
+      ],
+      "counts": {
+        "add_sub_calls": 166,
+        "add_sub_input_limb_spans": 180,
+        "left_shift_calls": 26,
+        "left_shift_output_limb_spans": 37,
+        "recursive_multiply_calls": 40,
+        "right_shift_calls": 26,
+        "right_shift_input_limb_spans": 26,
+        "split_calls": 26,
+        "split_input_limb_spans": 28,
+        "square_table_lookups": 52
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "balanced_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        33,
+        35
+      ],
+      "square_argument_popcounts": [
+        26,
+        27
+      ],
+      "square_argument_bits": [
+        64,
+        59
+      ],
+      "counts": {
+        "add_sub_calls": 66,
+        "add_sub_input_limb_spans": 181,
+        "boolean_calls": 66,
+        "boolean_input_limb_spans": 132,
+        "left_shift_calls": 33,
+        "left_shift_output_limb_spans": 115,
+        "popcount_input_limb_spans": 4,
+        "set_bit_multiply_iterations": 33
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "equal_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        33,
+        33
+      ],
+      "square_argument_popcounts": [
+        33,
+        0
+      ],
+      "square_argument_bits": [
+        64,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 68,
+        "add_sub_input_limb_spans": 89,
+        "left_shift_calls": 26,
+        "left_shift_output_limb_spans": 38,
+        "recursive_square_calls": 41,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 13,
+        "split_input_limb_spans": 14,
+        "square_table_lookups": 28
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "equal_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        33,
+        33
+      ],
+      "square_argument_popcounts": [
+        33,
+        0
+      ],
+      "square_argument_bits": [
+        64,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 69,
+        "add_sub_input_limb_spans": 190,
+        "boolean_calls": 99,
+        "boolean_input_limb_spans": 248,
+        "left_shift_calls": 66,
+        "left_shift_output_limb_spans": 200,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 33
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "equal_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        33,
+        33
+      ],
+      "square_argument_popcounts": [
+        33,
+        0
+      ],
+      "square_argument_bits": [
+        64,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 65,
+        "add_sub_input_limb_spans": 81,
+        "equal_input_square_shortcuts": 1,
+        "left_shift_calls": 26,
+        "left_shift_output_limb_spans": 38,
+        "recursive_multiply_calls": 1,
+        "recursive_square_calls": 40,
+        "split_calls": 13,
+        "split_input_limb_spans": 14,
+        "square_table_lookups": 27
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "equal_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        33,
+        33
+      ],
+      "square_argument_popcounts": [
+        33,
+        0
+      ],
+      "square_argument_bits": [
+        64,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 66,
+        "add_sub_input_limb_spans": 181,
+        "boolean_calls": 66,
+        "boolean_input_limb_spans": 132,
+        "left_shift_calls": 33,
+        "left_shift_output_limb_spans": 115,
+        "popcount_input_limb_spans": 4,
+        "set_bit_multiply_iterations": 33
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "near_random_plus_7",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        32,
+        32
+      ],
+      "square_argument_popcounts": [
+        32,
+        2
+      ],
+      "square_argument_bits": [
+        64,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 69,
+        "add_sub_input_limb_spans": 93,
+        "left_shift_calls": 26,
+        "left_shift_output_limb_spans": 38,
+        "recursive_square_calls": 41,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 13,
+        "split_input_limb_spans": 14,
+        "square_table_lookups": 28
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "near_random_plus_7",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        32,
+        32
+      ],
+      "square_argument_popcounts": [
+        32,
+        2
+      ],
+      "square_argument_bits": [
+        64,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 72,
+        "add_sub_input_limb_spans": 193,
+        "boolean_calls": 102,
+        "boolean_input_limb_spans": 247,
+        "left_shift_calls": 68,
+        "left_shift_output_limb_spans": 200,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 34
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "near_random_plus_7",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        32,
+        32
+      ],
+      "square_argument_popcounts": [
+        32,
+        2
+      ],
+      "square_argument_bits": [
+        64,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 104,
+        "add_sub_input_limb_spans": 120,
+        "equal_input_square_shortcuts": 7,
+        "left_shift_calls": 26,
+        "left_shift_output_limb_spans": 38,
+        "recursive_multiply_calls": 22,
+        "recursive_square_calls": 25,
+        "right_shift_calls": 8,
+        "right_shift_input_limb_spans": 8,
+        "split_calls": 20,
+        "split_input_limb_spans": 22,
+        "square_table_lookups": 35
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "near_random_plus_7",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        32,
+        32
+      ],
+      "square_argument_popcounts": [
+        32,
+        2
+      ],
+      "square_argument_bits": [
+        64,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 64,
+        "add_sub_input_limb_spans": 177,
+        "boolean_calls": 64,
+        "boolean_input_limb_spans": 128,
+        "left_shift_calls": 32,
+        "left_shift_output_limb_spans": 113,
+        "popcount_input_limb_spans": 4,
+        "set_bit_multiply_iterations": 32
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "sparse_three_bits",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        11
+      ],
+      "square_argument_bits": [
+        64,
+        31
+      ],
+      "counts": {
+        "add_sub_calls": 69,
+        "add_sub_input_limb_spans": 93,
+        "left_shift_calls": 26,
+        "left_shift_output_limb_spans": 36,
+        "recursive_square_calls": 41,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 13,
+        "split_input_limb_spans": 14,
+        "square_table_lookups": 28
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "sparse_three_bits",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        11
+      ],
+      "square_argument_bits": [
+        64,
+        31
+      ],
+      "counts": {
+        "add_sub_calls": 34,
+        "add_sub_input_limb_spans": 66,
+        "boolean_calls": 45,
+        "boolean_input_limb_spans": 73,
+        "left_shift_calls": 30,
+        "left_shift_output_limb_spans": 62,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 15
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "sparse_three_bits",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        11
+      ],
+      "square_argument_bits": [
+        64,
+        31
+      ],
+      "counts": {
+        "add_sub_calls": 63,
+        "add_sub_input_limb_spans": 76,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 2,
+        "equal_input_square_shortcuts": 4,
+        "left_shift_calls": 17,
+        "left_shift_output_limb_spans": 25,
+        "popcount_input_limb_spans": 2,
+        "recursive_multiply_calls": 19,
+        "recursive_square_calls": 10,
+        "right_shift_calls": 4,
+        "right_shift_input_limb_spans": 4,
+        "set_bit_multiply_iterations": 1,
+        "short_operand_shift_add_shortcuts": 1,
+        "split_calls": 14,
+        "split_input_limb_spans": 16,
+        "square_table_lookups": 16
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "sparse_three_bits",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        11
+      ],
+      "square_argument_bits": [
+        64,
+        31
+      ],
+      "counts": {
+        "add_sub_calls": 6,
+        "add_sub_input_limb_spans": 16,
+        "boolean_calls": 6,
+        "boolean_input_limb_spans": 12,
+        "left_shift_calls": 3,
+        "left_shift_output_limb_spans": 10,
+        "popcount_input_limb_spans": 4,
+        "set_bit_multiply_iterations": 3
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "dense_all_ones",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        64,
+        63
+      ],
+      "square_argument_popcounts": [
+        63,
+        1
+      ],
+      "square_argument_bits": [
+        64,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 38,
+        "add_sub_input_limb_spans": 58,
+        "left_shift_calls": 14,
+        "left_shift_output_limb_spans": 24,
+        "recursive_square_calls": 23,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 7,
+        "split_input_limb_spans": 8,
+        "square_table_lookups": 16
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "dense_all_ones",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        64,
+        63
+      ],
+      "square_argument_popcounts": [
+        63,
+        1
+      ],
+      "square_argument_bits": [
+        64,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 131,
+        "add_sub_input_limb_spans": 357,
+        "boolean_calls": 192,
+        "boolean_input_limb_spans": 476,
+        "left_shift_calls": 128,
+        "left_shift_output_limb_spans": 379,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 64
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "dense_all_ones",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        64,
+        63
+      ],
+      "square_argument_popcounts": [
+        63,
+        1
+      ],
+      "square_argument_bits": [
+        64,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 41,
+        "add_sub_input_limb_spans": 56,
+        "equal_input_square_shortcuts": 3,
+        "left_shift_calls": 14,
+        "left_shift_output_limb_spans": 24,
+        "recursive_multiply_calls": 10,
+        "recursive_square_calls": 15,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 10,
+        "split_input_limb_spans": 12,
+        "square_table_lookups": 13
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "dense_all_ones",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        64,
+        63
+      ],
+      "square_argument_popcounts": [
+        63,
+        1
+      ],
+      "square_argument_bits": [
+        64,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 126,
+        "add_sub_input_limb_spans": 345,
+        "boolean_calls": 126,
+        "boolean_input_limb_spans": 252,
+        "left_shift_calls": 63,
+        "left_shift_output_limb_spans": 219,
+        "popcount_input_limb_spans": 4,
+        "set_bit_multiply_iterations": 63
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "one_times_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        1,
+        33
+      ],
+      "square_argument_popcounts": [
+        33,
+        32
+      ],
+      "square_argument_bits": [
+        63,
+        63
+      ],
+      "counts": {
+        "add_sub_calls": 133,
+        "add_sub_input_limb_spans": 168,
+        "left_shift_calls": 52,
+        "left_shift_output_limb_spans": 74,
+        "recursive_square_calls": 80,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 2,
+        "split_calls": 26,
+        "split_input_limb_spans": 28,
+        "square_table_lookups": 54
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "one_times_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        1,
+        33
+      ],
+      "square_argument_popcounts": [
+        33,
+        32
+      ],
+      "square_argument_bits": [
+        63,
+        63
+      ],
+      "counts": {
+        "add_sub_calls": 133,
+        "add_sub_input_limb_spans": 364,
+        "boolean_calls": 195,
+        "boolean_input_limb_spans": 486,
+        "left_shift_calls": 130,
+        "left_shift_output_limb_spans": 389,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 2,
+        "set_bit_square_iterations": 65
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "one_times_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        1,
+        33
+      ],
+      "square_argument_popcounts": [
+        33,
+        32
+      ],
+      "square_argument_bits": [
+        63,
+        63
+      ],
+      "counts": {
+        "recursive_multiply_calls": 1
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "one_times_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        1,
+        33
+      ],
+      "square_argument_popcounts": [
+        33,
+        32
+      ],
+      "square_argument_bits": [
+        63,
+        63
+      ],
+      "counts": {
+        "add_sub_calls": 2,
+        "add_sub_input_limb_spans": 3,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 2,
+        "left_shift_calls": 1,
+        "left_shift_output_limb_spans": 2,
+        "popcount_input_limb_spans": 3,
+        "set_bit_multiply_iterations": 1
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "byte_times_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        5,
+        33
+      ],
+      "square_argument_popcounts": [
+        37,
+        36
+      ],
+      "square_argument_bits": [
+        63,
+        63
+      ],
+      "counts": {
+        "add_sub_calls": 133,
+        "add_sub_input_limb_spans": 168,
+        "left_shift_calls": 52,
+        "left_shift_output_limb_spans": 74,
+        "recursive_square_calls": 80,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 2,
+        "split_calls": 26,
+        "split_input_limb_spans": 28,
+        "square_table_lookups": 54
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "byte_times_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        5,
+        33
+      ],
+      "square_argument_popcounts": [
+        37,
+        36
+      ],
+      "square_argument_bits": [
+        63,
+        63
+      ],
+      "counts": {
+        "add_sub_calls": 149,
+        "add_sub_input_limb_spans": 404,
+        "boolean_calls": 219,
+        "boolean_input_limb_spans": 542,
+        "left_shift_calls": 146,
+        "left_shift_output_limb_spans": 421,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 2,
+        "set_bit_square_iterations": 73
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "byte_times_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        5,
+        33
+      ],
+      "square_argument_popcounts": [
+        37,
+        36
+      ],
+      "square_argument_bits": [
+        63,
+        63
+      ],
+      "counts": {
+        "add_sub_calls": 10,
+        "add_sub_input_limb_spans": 19,
+        "boolean_calls": 10,
+        "boolean_input_limb_spans": 10,
+        "left_shift_calls": 5,
+        "left_shift_output_limb_spans": 14,
+        "popcount_input_limb_spans": 3,
+        "recursive_multiply_calls": 1,
+        "set_bit_multiply_iterations": 5,
+        "short_operand_shift_add_shortcuts": 1
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "byte_times_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        5,
+        33
+      ],
+      "square_argument_popcounts": [
+        37,
+        36
+      ],
+      "square_argument_bits": [
+        63,
+        63
+      ],
+      "counts": {
+        "add_sub_calls": 10,
+        "add_sub_input_limb_spans": 19,
+        "boolean_calls": 10,
+        "boolean_input_limb_spans": 10,
+        "left_shift_calls": 5,
+        "left_shift_output_limb_spans": 14,
+        "popcount_input_limb_spans": 3,
+        "set_bit_multiply_iterations": 5
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        62
+      ],
+      "square_argument_bits": [
+        63,
+        62
+      ],
+      "counts": {
+        "add_sub_calls": 84,
+        "add_sub_input_limb_spans": 116,
+        "left_shift_calls": 32,
+        "left_shift_output_limb_spans": 46,
+        "recursive_square_calls": 50,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 2,
+        "split_calls": 16,
+        "split_input_limb_spans": 18,
+        "square_table_lookups": 34
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        62
+      ],
+      "square_argument_bits": [
+        63,
+        62
+      ],
+      "counts": {
+        "add_sub_calls": 130,
+        "add_sub_input_limb_spans": 352,
+        "boolean_calls": 189,
+        "boolean_input_limb_spans": 468,
+        "left_shift_calls": 126,
+        "left_shift_output_limb_spans": 366,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 2,
+        "set_bit_square_iterations": 63
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        62
+      ],
+      "square_argument_bits": [
+        63,
+        62
+      ],
+      "counts": {
+        "recursive_multiply_calls": 1
+      }
+    },
+    {
+      "width": 64,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        62
+      ],
+      "square_argument_bits": [
+        63,
+        62
+      ],
+      "counts": {
+        "add_sub_calls": 2,
+        "add_sub_input_limb_spans": 4,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 4,
+        "left_shift_calls": 1,
+        "left_shift_output_limb_spans": 2,
+        "popcount_input_limb_spans": 3,
+        "set_bit_multiply_iterations": 1
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "balanced_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        126,
+        124
+      ],
+      "square_argument_popcounts": [
+        141,
+        127
+      ],
+      "square_argument_bits": [
+        256,
+        253
+      ],
+      "counts": {
+        "add_sub_calls": 1204,
+        "add_sub_input_limb_spans": 1733,
+        "left_shift_calls": 480,
+        "left_shift_output_limb_spans": 805,
+        "recursive_square_calls": 722,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 8,
+        "split_calls": 240,
+        "split_input_limb_spans": 290,
+        "square_table_lookups": 482
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "balanced_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        126,
+        124
+      ],
+      "square_argument_popcounts": [
+        141,
+        127
+      ],
+      "square_argument_bits": [
+        256,
+        253
+      ],
+      "counts": {
+        "add_sub_calls": 540,
+        "add_sub_input_limb_spans": 5524,
+        "boolean_calls": 804,
+        "boolean_input_limb_spans": 7620,
+        "left_shift_calls": 536,
+        "left_shift_output_limb_spans": 5561,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 8,
+        "set_bit_square_iterations": 268
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "balanced_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        126,
+        124
+      ],
+      "square_argument_popcounts": [
+        141,
+        127
+      ],
+      "square_argument_bits": [
+        256,
+        253
+      ],
+      "counts": {
+        "add_sub_calls": 1548,
+        "add_sub_input_limb_spans": 1792,
+        "boolean_calls": 10,
+        "boolean_input_limb_spans": 10,
+        "equal_input_square_shortcuts": 2,
+        "left_shift_calls": 245,
+        "left_shift_output_limb_spans": 406,
+        "popcount_input_limb_spans": 2,
+        "recursive_multiply_calls": 361,
+        "recursive_square_calls": 2,
+        "right_shift_calls": 234,
+        "right_shift_input_limb_spans": 234,
+        "set_bit_multiply_iterations": 5,
+        "short_operand_shift_add_shortcuts": 1,
+        "split_calls": 240,
+        "split_input_limb_spans": 290,
+        "square_table_lookups": 470
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "balanced_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        126,
+        124
+      ],
+      "square_argument_popcounts": [
+        141,
+        127
+      ],
+      "square_argument_bits": [
+        256,
+        253
+      ],
+      "counts": {
+        "add_sub_calls": 248,
+        "add_sub_input_limb_spans": 2553,
+        "boolean_calls": 248,
+        "boolean_input_limb_spans": 1984,
+        "left_shift_calls": 124,
+        "left_shift_output_limb_spans": 1561,
+        "popcount_input_limb_spans": 16,
+        "set_bit_multiply_iterations": 124
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "equal_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        126,
+        126
+      ],
+      "square_argument_popcounts": [
+        126,
+        0
+      ],
+      "square_argument_bits": [
+        256,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 608,
+        "add_sub_input_limb_spans": 880,
+        "left_shift_calls": 242,
+        "left_shift_output_limb_spans": 405,
+        "recursive_square_calls": 365,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 121,
+        "split_input_limb_spans": 146,
+        "square_table_lookups": 244
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "equal_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        126,
+        126
+      ],
+      "square_argument_popcounts": [
+        126,
+        0
+      ],
+      "square_argument_bits": [
+        256,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 255,
+        "add_sub_input_limb_spans": 2615,
+        "boolean_calls": 378,
+        "boolean_input_limb_spans": 3591,
+        "left_shift_calls": 252,
+        "left_shift_output_limb_spans": 2636,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 126
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "equal_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        126,
+        126
+      ],
+      "square_argument_popcounts": [
+        126,
+        0
+      ],
+      "square_argument_bits": [
+        256,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 605,
+        "add_sub_input_limb_spans": 848,
+        "equal_input_square_shortcuts": 1,
+        "left_shift_calls": 242,
+        "left_shift_output_limb_spans": 405,
+        "recursive_multiply_calls": 1,
+        "recursive_square_calls": 364,
+        "split_calls": 121,
+        "split_input_limb_spans": 146,
+        "square_table_lookups": 243
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "equal_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        126,
+        126
+      ],
+      "square_argument_popcounts": [
+        126,
+        0
+      ],
+      "square_argument_bits": [
+        256,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 252,
+        "add_sub_input_limb_spans": 2581,
+        "boolean_calls": 252,
+        "boolean_input_limb_spans": 2016,
+        "left_shift_calls": 126,
+        "left_shift_output_limb_spans": 1573,
+        "popcount_input_limb_spans": 16,
+        "set_bit_multiply_iterations": 126
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "near_random_plus_7",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        124,
+        124
+      ],
+      "square_argument_popcounts": [
+        124,
+        2
+      ],
+      "square_argument_bits": [
+        256,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 609,
+        "add_sub_input_limb_spans": 896,
+        "left_shift_calls": 242,
+        "left_shift_output_limb_spans": 405,
+        "recursive_square_calls": 365,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 121,
+        "split_input_limb_spans": 146,
+        "square_table_lookups": 244
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "near_random_plus_7",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        124,
+        124
+      ],
+      "square_argument_popcounts": [
+        124,
+        2
+      ],
+      "square_argument_bits": [
+        256,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 256,
+        "add_sub_input_limb_spans": 2601,
+        "boolean_calls": 378,
+        "boolean_input_limb_spans": 3547,
+        "left_shift_calls": 252,
+        "left_shift_output_limb_spans": 2620,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 126
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "near_random_plus_7",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        124,
+        124
+      ],
+      "square_argument_popcounts": [
+        124,
+        2
+      ],
+      "square_argument_bits": [
+        256,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 764,
+        "add_sub_input_limb_spans": 1012,
+        "equal_input_square_shortcuts": 31,
+        "left_shift_calls": 242,
+        "left_shift_output_limb_spans": 405,
+        "recursive_multiply_calls": 94,
+        "recursive_square_calls": 301,
+        "right_shift_calls": 32,
+        "right_shift_input_limb_spans": 32,
+        "split_calls": 152,
+        "split_input_limb_spans": 194,
+        "square_table_lookups": 275
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "near_random_plus_7",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        124,
+        124
+      ],
+      "square_argument_popcounts": [
+        124,
+        2
+      ],
+      "square_argument_bits": [
+        256,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 248,
+        "add_sub_input_limb_spans": 2548,
+        "boolean_calls": 248,
+        "boolean_input_limb_spans": 1984,
+        "left_shift_calls": 124,
+        "left_shift_output_limb_spans": 1556,
+        "popcount_input_limb_spans": 16,
+        "set_bit_multiply_iterations": 124
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "sparse_three_bits",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        43
+      ],
+      "square_argument_bits": [
+        256,
+        127
+      ],
+      "counts": {
+        "add_sub_calls": 389,
+        "add_sub_input_limb_spans": 662,
+        "left_shift_calls": 154,
+        "left_shift_output_limb_spans": 267,
+        "recursive_square_calls": 233,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 4,
+        "split_calls": 77,
+        "split_input_limb_spans": 103,
+        "square_table_lookups": 156
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "sparse_three_bits",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        43
+      ],
+      "square_argument_bits": [
+        256,
+        127
+      ],
+      "counts": {
+        "add_sub_calls": 98,
+        "add_sub_input_limb_spans": 631,
+        "boolean_calls": 141,
+        "boolean_input_limb_spans": 787,
+        "left_shift_calls": 94,
+        "left_shift_output_limb_spans": 692,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 4,
+        "set_bit_square_iterations": 47
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "sparse_three_bits",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        43
+      ],
+      "square_argument_bits": [
+        256,
+        127
+      ],
+      "counts": {
+        "add_sub_calls": 253,
+        "add_sub_input_limb_spans": 418,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 2,
+        "equal_input_square_shortcuts": 10,
+        "left_shift_calls": 85,
+        "left_shift_output_limb_spans": 175,
+        "popcount_input_limb_spans": 4,
+        "recursive_multiply_calls": 46,
+        "recursive_square_calls": 91,
+        "right_shift_calls": 7,
+        "right_shift_input_limb_spans": 7,
+        "set_bit_multiply_iterations": 1,
+        "short_operand_shift_add_shortcuts": 1,
+        "split_calls": 57,
+        "split_input_limb_spans": 91,
+        "square_table_lookups": 78
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "sparse_three_bits",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        43
+      ],
+      "square_argument_bits": [
+        256,
+        127
+      ],
+      "counts": {
+        "add_sub_calls": 6,
+        "add_sub_input_limb_spans": 61,
+        "boolean_calls": 6,
+        "boolean_input_limb_spans": 48,
+        "left_shift_calls": 3,
+        "left_shift_output_limb_spans": 37,
+        "popcount_input_limb_spans": 16,
+        "set_bit_multiply_iterations": 3
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "dense_all_ones",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        256,
+        255
+      ],
+      "square_argument_popcounts": [
+        255,
+        1
+      ],
+      "square_argument_bits": [
+        256,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 158,
+        "add_sub_input_limb_spans": 339,
+        "left_shift_calls": 62,
+        "left_shift_output_limb_spans": 155,
+        "recursive_square_calls": 95,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 31,
+        "split_input_limb_spans": 48,
+        "square_table_lookups": 64
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "dense_all_ones",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        256,
+        255
+      ],
+      "square_argument_popcounts": [
+        255,
+        1
+      ],
+      "square_argument_bits": [
+        256,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 515,
+        "add_sub_input_limb_spans": 5265,
+        "boolean_calls": 768,
+        "boolean_input_limb_spans": 7274,
+        "left_shift_calls": 512,
+        "left_shift_output_limb_spans": 5353,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 256
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "dense_all_ones",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        256,
+        255
+      ],
+      "square_argument_popcounts": [
+        255,
+        1
+      ],
+      "square_argument_bits": [
+        256,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 163,
+        "add_sub_input_limb_spans": 319,
+        "equal_input_square_shortcuts": 5,
+        "left_shift_calls": 62,
+        "left_shift_output_limb_spans": 155,
+        "recursive_multiply_calls": 16,
+        "recursive_square_calls": 83,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 36,
+        "split_input_limb_spans": 64,
+        "square_table_lookups": 59
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "dense_all_ones",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        256,
+        255
+      ],
+      "square_argument_popcounts": [
+        255,
+        1
+      ],
+      "square_argument_bits": [
+        256,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 510,
+        "add_sub_input_limb_spans": 5223,
+        "boolean_calls": 510,
+        "boolean_input_limb_spans": 4080,
+        "left_shift_calls": 255,
+        "left_shift_output_limb_spans": 3183,
+        "popcount_input_limb_spans": 16,
+        "set_bit_multiply_iterations": 255
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "one_times_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        1,
+        126
+      ],
+      "square_argument_popcounts": [
+        123,
+        125
+      ],
+      "square_argument_bits": [
+        255,
+        255
+      ],
+      "counts": {
+        "add_sub_calls": 1213,
+        "add_sub_input_limb_spans": 1732,
+        "left_shift_calls": 484,
+        "left_shift_output_limb_spans": 810,
+        "recursive_square_calls": 728,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 8,
+        "split_calls": 242,
+        "split_input_limb_spans": 292,
+        "square_table_lookups": 486
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "one_times_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        1,
+        126
+      ],
+      "square_argument_popcounts": [
+        123,
+        125
+      ],
+      "square_argument_bits": [
+        255,
+        255
+      ],
+      "counts": {
+        "add_sub_calls": 499,
+        "add_sub_input_limb_spans": 5119,
+        "boolean_calls": 744,
+        "boolean_input_limb_spans": 7071,
+        "left_shift_calls": 496,
+        "left_shift_output_limb_spans": 5209,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 8,
+        "set_bit_square_iterations": 248
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "one_times_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        1,
+        126
+      ],
+      "square_argument_popcounts": [
+        123,
+        125
+      ],
+      "square_argument_bits": [
+        255,
+        255
+      ],
+      "counts": {
+        "recursive_multiply_calls": 1
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "one_times_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        1,
+        126
+      ],
+      "square_argument_popcounts": [
+        123,
+        125
+      ],
+      "square_argument_bits": [
+        255,
+        255
+      ],
+      "counts": {
+        "add_sub_calls": 2,
+        "add_sub_input_limb_spans": 9,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 2,
+        "left_shift_calls": 1,
+        "left_shift_output_limb_spans": 8,
+        "popcount_input_limb_spans": 9,
+        "set_bit_multiply_iterations": 1
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "byte_times_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        5,
+        126
+      ],
+      "square_argument_popcounts": [
+        127,
+        124
+      ],
+      "square_argument_bits": [
+        255,
+        255
+      ],
+      "counts": {
+        "add_sub_calls": 1213,
+        "add_sub_input_limb_spans": 1732,
+        "left_shift_calls": 484,
+        "left_shift_output_limb_spans": 810,
+        "recursive_square_calls": 728,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 8,
+        "split_calls": 242,
+        "split_input_limb_spans": 292,
+        "square_table_lookups": 486
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "byte_times_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        5,
+        126
+      ],
+      "square_argument_popcounts": [
+        127,
+        124
+      ],
+      "square_argument_bits": [
+        255,
+        255
+      ],
+      "counts": {
+        "add_sub_calls": 505,
+        "add_sub_input_limb_spans": 5170,
+        "boolean_calls": 753,
+        "boolean_input_limb_spans": 7146,
+        "left_shift_calls": 502,
+        "left_shift_output_limb_spans": 5239,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 8,
+        "set_bit_square_iterations": 251
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "byte_times_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        5,
+        126
+      ],
+      "square_argument_popcounts": [
+        127,
+        124
+      ],
+      "square_argument_bits": [
+        255,
+        255
+      ],
+      "counts": {
+        "add_sub_calls": 10,
+        "add_sub_input_limb_spans": 49,
+        "boolean_calls": 10,
+        "boolean_input_limb_spans": 10,
+        "left_shift_calls": 5,
+        "left_shift_output_limb_spans": 44,
+        "popcount_input_limb_spans": 9,
+        "recursive_multiply_calls": 1,
+        "set_bit_multiply_iterations": 5,
+        "short_operand_shift_add_shortcuts": 1
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "byte_times_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        5,
+        126
+      ],
+      "square_argument_popcounts": [
+        127,
+        124
+      ],
+      "square_argument_bits": [
+        255,
+        255
+      ],
+      "counts": {
+        "add_sub_calls": 10,
+        "add_sub_input_limb_spans": 49,
+        "boolean_calls": 10,
+        "boolean_input_limb_spans": 10,
+        "left_shift_calls": 5,
+        "left_shift_output_limb_spans": 44,
+        "popcount_input_limb_spans": 9,
+        "set_bit_multiply_iterations": 5
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        254
+      ],
+      "square_argument_bits": [
+        255,
+        254
+      ],
+      "counts": {
+        "add_sub_calls": 424,
+        "add_sub_input_limb_spans": 776,
+        "left_shift_calls": 168,
+        "left_shift_output_limb_spans": 317,
+        "recursive_square_calls": 254,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 8,
+        "split_calls": 84,
+        "split_input_limb_spans": 120,
+        "square_table_lookups": 170
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        254
+      ],
+      "square_argument_bits": [
+        255,
+        254
+      ],
+      "counts": {
+        "add_sub_calls": 514,
+        "add_sub_input_limb_spans": 5248,
+        "boolean_calls": 765,
+        "boolean_input_limb_spans": 7248,
+        "left_shift_calls": 510,
+        "left_shift_output_limb_spans": 5298,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 8,
+        "set_bit_square_iterations": 255
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        254
+      ],
+      "square_argument_bits": [
+        255,
+        254
+      ],
+      "counts": {
+        "recursive_multiply_calls": 1
+      }
+    },
+    {
+      "width": 256,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        254
+      ],
+      "square_argument_bits": [
+        255,
+        254
+      ],
+      "counts": {
+        "add_sub_calls": 2,
+        "add_sub_input_limb_spans": 16,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 16,
+        "left_shift_calls": 1,
+        "left_shift_output_limb_spans": 8,
+        "popcount_input_limb_spans": 9,
+        "set_bit_multiply_iterations": 1
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "balanced_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        514,
+        486
+      ],
+      "square_argument_popcounts": [
+        525,
+        511
+      ],
+      "square_argument_bits": [
+        1024,
+        1022
+      ],
+      "counts": {
+        "add_sub_calls": 10868,
+        "add_sub_input_limb_spans": 16362,
+        "left_shift_calls": 4346,
+        "left_shift_output_limb_spans": 7818,
+        "recursive_square_calls": 6521,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 32,
+        "split_calls": 2173,
+        "split_input_limb_spans": 2775,
+        "square_table_lookups": 4348
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "balanced_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        514,
+        486
+      ],
+      "square_argument_popcounts": [
+        525,
+        511
+      ],
+      "square_argument_bits": [
+        1024,
+        1022
+      ],
+      "counts": {
+        "add_sub_calls": 2075,
+        "add_sub_input_limb_spans": 83470,
+        "boolean_calls": 3108,
+        "boolean_input_limb_spans": 116494,
+        "left_shift_calls": 2072,
+        "left_shift_output_limb_spans": 83676,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 32,
+        "set_bit_square_iterations": 1036
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "balanced_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        514,
+        486
+      ],
+      "square_argument_popcounts": [
+        525,
+        511
+      ],
+      "square_argument_bits": [
+        1024,
+        1022
+      ],
+      "counts": {
+        "add_sub_calls": 13951,
+        "add_sub_input_limb_spans": 16675,
+        "boolean_calls": 112,
+        "boolean_input_limb_spans": 112,
+        "equal_input_square_shortcuts": 9,
+        "left_shift_calls": 2214,
+        "left_shift_output_limb_spans": 3939,
+        "popcount_input_limb_spans": 26,
+        "recursive_multiply_calls": 3238,
+        "recursive_square_calls": 9,
+        "right_shift_calls": 2096,
+        "right_shift_input_limb_spans": 2096,
+        "set_bit_multiply_iterations": 56,
+        "short_operand_shift_add_shortcuts": 13,
+        "split_calls": 2158,
+        "split_input_limb_spans": 2760,
+        "square_table_lookups": 4201
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "balanced_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        514,
+        486
+      ],
+      "square_argument_popcounts": [
+        525,
+        511
+      ],
+      "square_argument_bits": [
+        1024,
+        1022
+      ],
+      "counts": {
+        "add_sub_calls": 972,
+        "add_sub_input_limb_spans": 39150,
+        "boolean_calls": 972,
+        "boolean_input_limb_spans": 31104,
+        "left_shift_calls": 486,
+        "left_shift_output_limb_spans": 23598,
+        "popcount_input_limb_spans": 64,
+        "set_bit_multiply_iterations": 486
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "equal_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        514,
+        514
+      ],
+      "square_argument_popcounts": [
+        514,
+        0
+      ],
+      "square_argument_bits": [
+        1024,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 5453,
+        "add_sub_input_limb_spans": 8251,
+        "left_shift_calls": 2180,
+        "left_shift_output_limb_spans": 3913,
+        "recursive_square_calls": 3272,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 1090,
+        "split_input_limb_spans": 1391,
+        "square_table_lookups": 2182
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "equal_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        514,
+        514
+      ],
+      "square_argument_popcounts": [
+        514,
+        0
+      ],
+      "square_argument_bits": [
+        1024,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 1031,
+        "add_sub_input_limb_spans": 41389,
+        "boolean_calls": 1542,
+        "boolean_input_limb_spans": 57709,
+        "left_shift_calls": 1028,
+        "left_shift_output_limb_spans": 41228,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 514
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "equal_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        514,
+        514
+      ],
+      "square_argument_popcounts": [
+        514,
+        0
+      ],
+      "square_argument_bits": [
+        1024,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 5450,
+        "add_sub_input_limb_spans": 8123,
+        "equal_input_square_shortcuts": 1,
+        "left_shift_calls": 2180,
+        "left_shift_output_limb_spans": 3913,
+        "recursive_multiply_calls": 1,
+        "recursive_square_calls": 3271,
+        "split_calls": 1090,
+        "split_input_limb_spans": 1391,
+        "square_table_lookups": 2181
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "equal_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        514,
+        514
+      ],
+      "square_argument_popcounts": [
+        514,
+        0
+      ],
+      "square_argument_bits": [
+        1024,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 1028,
+        "add_sub_input_limb_spans": 41243,
+        "boolean_calls": 1028,
+        "boolean_input_limb_spans": 32896,
+        "left_shift_calls": 514,
+        "left_shift_output_limb_spans": 24795,
+        "popcount_input_limb_spans": 64,
+        "set_bit_multiply_iterations": 514
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "near_random_plus_7",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        513,
+        513
+      ],
+      "square_argument_popcounts": [
+        513,
+        2
+      ],
+      "square_argument_bits": [
+        1024,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 5454,
+        "add_sub_input_limb_spans": 8315,
+        "left_shift_calls": 2180,
+        "left_shift_output_limb_spans": 3913,
+        "recursive_square_calls": 3272,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 1090,
+        "split_input_limb_spans": 1391,
+        "square_table_lookups": 2182
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "near_random_plus_7",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        513,
+        513
+      ],
+      "square_argument_popcounts": [
+        513,
+        2
+      ],
+      "square_argument_bits": [
+        1024,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 1034,
+        "add_sub_input_limb_spans": 41392,
+        "boolean_calls": 1545,
+        "boolean_input_limb_spans": 57618,
+        "left_shift_calls": 1030,
+        "left_shift_output_limb_spans": 41198,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 515
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "near_random_plus_7",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        513,
+        513
+      ],
+      "square_argument_popcounts": [
+        513,
+        2
+      ],
+      "square_argument_bits": [
+        1024,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 6081,
+        "add_sub_input_limb_spans": 8803,
+        "equal_input_square_shortcuts": 123,
+        "left_shift_calls": 2180,
+        "left_shift_output_limb_spans": 3913,
+        "recursive_multiply_calls": 379,
+        "recursive_square_calls": 3015,
+        "right_shift_calls": 127,
+        "right_shift_input_limb_spans": 127,
+        "split_calls": 1216,
+        "split_input_limb_spans": 1646,
+        "square_table_lookups": 2305
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "near_random_plus_7",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        513,
+        513
+      ],
+      "square_argument_popcounts": [
+        513,
+        2
+      ],
+      "square_argument_bits": [
+        1024,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 1026,
+        "add_sub_input_limb_spans": 41178,
+        "boolean_calls": 1026,
+        "boolean_input_limb_spans": 32832,
+        "left_shift_calls": 513,
+        "left_shift_output_limb_spans": 24762,
+        "popcount_input_limb_spans": 64,
+        "set_bit_multiply_iterations": 513
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "sparse_three_bits",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        171
+      ],
+      "square_argument_bits": [
+        1024,
+        511
+      ],
+      "counts": {
+        "add_sub_calls": 2004,
+        "add_sub_input_limb_spans": 4022,
+        "left_shift_calls": 800,
+        "left_shift_output_limb_spans": 1648,
+        "recursive_square_calls": 1202,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 16,
+        "split_calls": 400,
+        "split_input_limb_spans": 634,
+        "square_table_lookups": 802
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "sparse_three_bits",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        171
+      ],
+      "square_argument_bits": [
+        1024,
+        511
+      ],
+      "counts": {
+        "add_sub_calls": 354,
+        "add_sub_input_limb_spans": 8331,
+        "boolean_calls": 525,
+        "boolean_input_limb_spans": 11003,
+        "left_shift_calls": 350,
+        "left_shift_output_limb_spans": 9932,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 16,
+        "set_bit_square_iterations": 175
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "sparse_three_bits",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        171
+      ],
+      "square_argument_bits": [
+        1024,
+        511
+      ],
+      "counts": {
+        "add_sub_calls": 1003,
+        "add_sub_input_limb_spans": 2231,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 2,
+        "equal_input_square_shortcuts": 20,
+        "left_shift_calls": 369,
+        "left_shift_output_limb_spans": 984,
+        "popcount_input_limb_spans": 12,
+        "recursive_multiply_calls": 94,
+        "recursive_square_calls": 479,
+        "right_shift_calls": 13,
+        "right_shift_input_limb_spans": 13,
+        "set_bit_multiply_iterations": 1,
+        "short_operand_shift_add_shortcuts": 1,
+        "split_calls": 215,
+        "split_input_limb_spans": 466,
+        "square_table_lookups": 352
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "sparse_three_bits",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        171
+      ],
+      "square_argument_bits": [
+        1024,
+        511
+      ],
+      "counts": {
+        "add_sub_calls": 6,
+        "add_sub_input_limb_spans": 241,
+        "boolean_calls": 6,
+        "boolean_input_limb_spans": 192,
+        "left_shift_calls": 3,
+        "left_shift_output_limb_spans": 145,
+        "popcount_input_limb_spans": 64,
+        "set_bit_multiply_iterations": 3
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "dense_all_ones",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        1024,
+        1023
+      ],
+      "square_argument_popcounts": [
+        1023,
+        1
+      ],
+      "square_argument_bits": [
+        1024,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 638,
+        "add_sub_input_limb_spans": 1775,
+        "left_shift_calls": 254,
+        "left_shift_output_limb_spans": 847,
+        "recursive_square_calls": 383,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 127,
+        "split_input_limb_spans": 256,
+        "square_table_lookups": 256
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "dense_all_ones",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        1024,
+        1023
+      ],
+      "square_argument_popcounts": [
+        1023,
+        1
+      ],
+      "square_argument_bits": [
+        1024,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 2051,
+        "add_sub_input_limb_spans": 82497,
+        "boolean_calls": 3072,
+        "boolean_input_limb_spans": 115106,
+        "left_shift_calls": 2048,
+        "left_shift_output_limb_spans": 82849,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 1024
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "dense_all_ones",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        1024,
+        1023
+      ],
+      "square_argument_popcounts": [
+        1023,
+        1
+      ],
+      "square_argument_bits": [
+        1024,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 645,
+        "add_sub_input_limb_spans": 1683,
+        "equal_input_square_shortcuts": 7,
+        "left_shift_calls": 254,
+        "left_shift_output_limb_spans": 847,
+        "recursive_multiply_calls": 22,
+        "recursive_square_calls": 367,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 134,
+        "split_input_limb_spans": 320,
+        "square_table_lookups": 249
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "dense_all_ones",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        1024,
+        1023
+      ],
+      "square_argument_popcounts": [
+        1023,
+        1
+      ],
+      "square_argument_bits": [
+        1024,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 2046,
+        "add_sub_input_limb_spans": 82335,
+        "boolean_calls": 2046,
+        "boolean_input_limb_spans": 65472,
+        "left_shift_calls": 1023,
+        "left_shift_output_limb_spans": 49599,
+        "popcount_input_limb_spans": 64,
+        "set_bit_multiply_iterations": 1023
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "one_times_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        1,
+        514
+      ],
+      "square_argument_popcounts": [
+        514,
+        515
+      ],
+      "square_argument_bits": [
+        1023,
+        1023
+      ],
+      "counts": {
+        "add_sub_calls": 10914,
+        "add_sub_input_limb_spans": 16420,
+        "left_shift_calls": 4364,
+        "left_shift_output_limb_spans": 7830,
+        "recursive_square_calls": 6548,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 32,
+        "split_calls": 2182,
+        "split_input_limb_spans": 2784,
+        "square_table_lookups": 4366
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "one_times_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        1,
+        514
+      ],
+      "square_argument_popcounts": [
+        514,
+        515
+      ],
+      "square_argument_bits": [
+        1023,
+        1023
+      ],
+      "counts": {
+        "add_sub_calls": 2062,
+        "add_sub_input_limb_spans": 82676,
+        "boolean_calls": 3087,
+        "boolean_input_limb_spans": 115444,
+        "left_shift_calls": 2058,
+        "left_shift_output_limb_spans": 82349,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 32,
+        "set_bit_square_iterations": 1029
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "one_times_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        1,
+        514
+      ],
+      "square_argument_popcounts": [
+        514,
+        515
+      ],
+      "square_argument_bits": [
+        1023,
+        1023
+      ],
+      "counts": {
+        "recursive_multiply_calls": 1
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "one_times_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        1,
+        514
+      ],
+      "square_argument_popcounts": [
+        514,
+        515
+      ],
+      "square_argument_bits": [
+        1023,
+        1023
+      ],
+      "counts": {
+        "add_sub_calls": 2,
+        "add_sub_input_limb_spans": 33,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 2,
+        "left_shift_calls": 1,
+        "left_shift_output_limb_spans": 32,
+        "popcount_input_limb_spans": 33,
+        "set_bit_multiply_iterations": 1
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "byte_times_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        5,
+        514
+      ],
+      "square_argument_popcounts": [
+        513,
+        515
+      ],
+      "square_argument_bits": [
+        1023,
+        1023
+      ],
+      "counts": {
+        "add_sub_calls": 10914,
+        "add_sub_input_limb_spans": 16421,
+        "left_shift_calls": 4364,
+        "left_shift_output_limb_spans": 7830,
+        "recursive_square_calls": 6548,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 32,
+        "split_calls": 2182,
+        "split_input_limb_spans": 2784,
+        "square_table_lookups": 4366
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "byte_times_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        5,
+        514
+      ],
+      "square_argument_popcounts": [
+        513,
+        515
+      ],
+      "square_argument_bits": [
+        1023,
+        1023
+      ],
+      "counts": {
+        "add_sub_calls": 2060,
+        "add_sub_input_limb_spans": 82612,
+        "boolean_calls": 3084,
+        "boolean_input_limb_spans": 115347,
+        "left_shift_calls": 2056,
+        "left_shift_output_limb_spans": 82315,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 32,
+        "set_bit_square_iterations": 1028
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "byte_times_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        5,
+        514
+      ],
+      "square_argument_popcounts": [
+        513,
+        515
+      ],
+      "square_argument_bits": [
+        1023,
+        1023
+      ],
+      "counts": {
+        "add_sub_calls": 10,
+        "add_sub_input_limb_spans": 169,
+        "boolean_calls": 10,
+        "boolean_input_limb_spans": 10,
+        "left_shift_calls": 5,
+        "left_shift_output_limb_spans": 164,
+        "popcount_input_limb_spans": 33,
+        "recursive_multiply_calls": 1,
+        "set_bit_multiply_iterations": 5,
+        "short_operand_shift_add_shortcuts": 1
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "byte_times_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        5,
+        514
+      ],
+      "square_argument_popcounts": [
+        513,
+        515
+      ],
+      "square_argument_bits": [
+        1023,
+        1023
+      ],
+      "counts": {
+        "add_sub_calls": 10,
+        "add_sub_input_limb_spans": 169,
+        "boolean_calls": 10,
+        "boolean_input_limb_spans": 10,
+        "left_shift_calls": 5,
+        "left_shift_output_limb_spans": 164,
+        "popcount_input_limb_spans": 33,
+        "set_bit_multiply_iterations": 5
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        1022
+      ],
+      "square_argument_bits": [
+        1023,
+        1022
+      ],
+      "counts": {
+        "add_sub_calls": 1844,
+        "add_sub_input_limb_spans": 4352,
+        "left_shift_calls": 736,
+        "left_shift_output_limb_spans": 1785,
+        "recursive_square_calls": 1106,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 32,
+        "split_calls": 368,
+        "split_input_limb_spans": 672,
+        "square_table_lookups": 738
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        1022
+      ],
+      "square_argument_bits": [
+        1023,
+        1022
+      ],
+      "counts": {
+        "add_sub_calls": 2050,
+        "add_sub_input_limb_spans": 82432,
+        "boolean_calls": 3069,
+        "boolean_input_limb_spans": 115008,
+        "left_shift_calls": 2046,
+        "left_shift_output_limb_spans": 82626,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 32,
+        "set_bit_square_iterations": 1023
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        1022
+      ],
+      "square_argument_bits": [
+        1023,
+        1022
+      ],
+      "counts": {
+        "recursive_multiply_calls": 1
+      }
+    },
+    {
+      "width": 1024,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        1022
+      ],
+      "square_argument_bits": [
+        1023,
+        1022
+      ],
+      "counts": {
+        "add_sub_calls": 2,
+        "add_sub_input_limb_spans": 64,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 64,
+        "left_shift_calls": 1,
+        "left_shift_output_limb_spans": 32,
+        "popcount_input_limb_spans": 33,
+        "set_bit_multiply_iterations": 1
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "balanced_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        2097,
+        2021
+      ],
+      "square_argument_popcounts": [
+        2072,
+        2045
+      ],
+      "square_argument_bits": [
+        4096,
+        4093
+      ],
+      "counts": {
+        "add_sub_calls": 98008,
+        "add_sub_input_limb_spans": 150793,
+        "left_shift_calls": 39202,
+        "left_shift_output_limb_spans": 72615,
+        "recursive_square_calls": 58805,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 128,
+        "split_calls": 19601,
+        "split_input_limb_spans": 25651,
+        "square_table_lookups": 39204
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "balanced_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        2097,
+        2021
+      ],
+      "square_argument_popcounts": [
+        2072,
+        2045
+      ],
+      "square_argument_bits": [
+        4096,
+        4093
+      ],
+      "counts": {
+        "add_sub_calls": 8237,
+        "add_sub_input_limb_spans": 1322960,
+        "boolean_calls": 12351,
+        "boolean_input_limb_spans": 1849424,
+        "left_shift_calls": 8234,
+        "left_shift_output_limb_spans": 1330277,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 128,
+        "set_bit_square_iterations": 4117
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "balanced_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        2097,
+        2021
+      ],
+      "square_argument_popcounts": [
+        2072,
+        2045
+      ],
+      "square_argument_bits": [
+        4096,
+        4093
+      ],
+      "counts": {
+        "add_sub_calls": 125841,
+        "add_sub_input_limb_spans": 152613,
+        "boolean_calls": 590,
+        "boolean_input_limb_spans": 590,
+        "equal_input_square_shortcuts": 82,
+        "left_shift_calls": 19827,
+        "left_shift_output_limb_spans": 36471,
+        "popcount_input_limb_spans": 146,
+        "recursive_multiply_calls": 29299,
+        "recursive_square_calls": 82,
+        "right_shift_calls": 19043,
+        "right_shift_input_limb_spans": 19043,
+        "set_bit_multiply_iterations": 295,
+        "short_operand_shift_add_shortcuts": 73,
+        "split_calls": 19532,
+        "split_input_limb_spans": 25582,
+        "square_table_lookups": 38168
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "balanced_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        2097,
+        2021
+      ],
+      "square_argument_popcounts": [
+        2072,
+        2045
+      ],
+      "square_argument_bits": [
+        4096,
+        4093
+      ],
+      "counts": {
+        "add_sub_calls": 4042,
+        "add_sub_input_limb_spans": 646025,
+        "boolean_calls": 4042,
+        "boolean_input_limb_spans": 517376,
+        "left_shift_calls": 2021,
+        "left_shift_output_limb_spans": 387337,
+        "popcount_input_limb_spans": 256,
+        "set_bit_multiply_iterations": 2021
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "equal_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        2097,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2097,
+        0
+      ],
+      "square_argument_bits": [
+        4096,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 49043,
+        "add_sub_input_limb_spans": 75730,
+        "left_shift_calls": 19616,
+        "left_shift_output_limb_spans": 36330,
+        "recursive_square_calls": 29426,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 9808,
+        "split_input_limb_spans": 12833,
+        "square_table_lookups": 19618
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "equal_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        2097,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2097,
+        0
+      ],
+      "square_argument_bits": [
+        4096,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 4197,
+        "add_sub_input_limb_spans": 674027,
+        "boolean_calls": 6291,
+        "boolean_input_limb_spans": 941931,
+        "left_shift_calls": 4194,
+        "left_shift_output_limb_spans": 677149,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 2097
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "equal_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        2097,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2097,
+        0
+      ],
+      "square_argument_bits": [
+        4096,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 49040,
+        "add_sub_input_limb_spans": 75218,
+        "equal_input_square_shortcuts": 1,
+        "left_shift_calls": 19616,
+        "left_shift_output_limb_spans": 36330,
+        "recursive_multiply_calls": 1,
+        "recursive_square_calls": 29425,
+        "split_calls": 9808,
+        "split_input_limb_spans": 12833,
+        "square_table_lookups": 19617
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "equal_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        2097,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2097,
+        0
+      ],
+      "square_argument_bits": [
+        4096,
+        0
+      ],
+      "counts": {
+        "add_sub_calls": 4194,
+        "add_sub_input_limb_spans": 673441,
+        "boolean_calls": 4194,
+        "boolean_input_limb_spans": 536832,
+        "left_shift_calls": 2097,
+        "left_shift_output_limb_spans": 405025,
+        "popcount_input_limb_spans": 256,
+        "set_bit_multiply_iterations": 2097
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "near_random_plus_7",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        2092,
+        2092
+      ],
+      "square_argument_popcounts": [
+        2092,
+        2
+      ],
+      "square_argument_bits": [
+        4096,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 49039,
+        "add_sub_input_limb_spans": 75981,
+        "left_shift_calls": 19614,
+        "left_shift_output_limb_spans": 36328,
+        "recursive_square_calls": 29423,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 9807,
+        "split_input_limb_spans": 12832,
+        "square_table_lookups": 19616
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "near_random_plus_7",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        2092,
+        2092
+      ],
+      "square_argument_popcounts": [
+        2092,
+        2
+      ],
+      "square_argument_bits": [
+        4096,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 4192,
+        "add_sub_input_limb_spans": 673002,
+        "boolean_calls": 6282,
+        "boolean_input_limb_spans": 940012,
+        "left_shift_calls": 4188,
+        "left_shift_output_limb_spans": 676503,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 2094
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "near_random_plus_7",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        2092,
+        2092
+      ],
+      "square_argument_popcounts": [
+        2092,
+        2
+      ],
+      "square_argument_bits": [
+        4096,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 51559,
+        "add_sub_input_limb_spans": 78058,
+        "equal_input_square_shortcuts": 482,
+        "left_shift_calls": 19614,
+        "left_shift_output_limb_spans": 36328,
+        "recursive_multiply_calls": 1525,
+        "recursive_square_calls": 28379,
+        "right_shift_calls": 510,
+        "right_shift_input_limb_spans": 510,
+        "split_calls": 10315,
+        "split_input_limb_spans": 14109,
+        "square_table_lookups": 20100
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "near_random_plus_7",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        2092,
+        2092
+      ],
+      "square_argument_popcounts": [
+        2092,
+        2
+      ],
+      "square_argument_bits": [
+        4096,
+        2
+      ],
+      "counts": {
+        "add_sub_calls": 4184,
+        "add_sub_input_limb_spans": 672157,
+        "boolean_calls": 4184,
+        "boolean_input_limb_spans": 535552,
+        "left_shift_calls": 2092,
+        "left_shift_output_limb_spans": 404381,
+        "popcount_input_limb_spans": 256,
+        "set_bit_multiply_iterations": 2092
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "sparse_three_bits",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        683
+      ],
+      "square_argument_bits": [
+        4096,
+        2047
+      ],
+      "counts": {
+        "add_sub_calls": 9854,
+        "add_sub_input_limb_spans": 22402,
+        "left_shift_calls": 3940,
+        "left_shift_output_limb_spans": 9247,
+        "recursive_square_calls": 5912,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 64,
+        "split_calls": 1970,
+        "split_input_limb_spans": 3555,
+        "square_table_lookups": 3942
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "sparse_three_bits",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        683
+      ],
+      "square_argument_bits": [
+        4096,
+        2047
+      ],
+      "counts": {
+        "add_sub_calls": 1378,
+        "add_sub_input_limb_spans": 126171,
+        "boolean_calls": 2061,
+        "boolean_input_limb_spans": 169627,
+        "left_shift_calls": 1374,
+        "left_shift_output_limb_spans": 154412,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 64,
+        "set_bit_square_iterations": 687
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "sparse_three_bits",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        683
+      ],
+      "square_argument_bits": [
+        4096,
+        2047
+      ],
+      "counts": {
+        "add_sub_calls": 3949,
+        "add_sub_input_limb_spans": 11301,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 2,
+        "equal_input_square_shortcuts": 38,
+        "left_shift_calls": 1517,
+        "left_shift_output_limb_spans": 4987,
+        "popcount_input_limb_spans": 44,
+        "recursive_multiply_calls": 184,
+        "recursive_square_calls": 2129,
+        "right_shift_calls": 25,
+        "right_shift_input_limb_spans": 25,
+        "set_bit_multiply_iterations": 1,
+        "short_operand_shift_add_shortcuts": 1,
+        "split_calls": 819,
+        "split_input_limb_spans": 2260,
+        "square_table_lookups": 1482
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "sparse_three_bits",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        3,
+        3
+      ],
+      "square_argument_popcounts": [
+        4,
+        683
+      ],
+      "square_argument_bits": [
+        4096,
+        2047
+      ],
+      "counts": {
+        "add_sub_calls": 6,
+        "add_sub_input_limb_spans": 961,
+        "boolean_calls": 6,
+        "boolean_input_limb_spans": 768,
+        "left_shift_calls": 3,
+        "left_shift_output_limb_spans": 577,
+        "popcount_input_limb_spans": 256,
+        "set_bit_multiply_iterations": 3
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "dense_all_ones",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        4096,
+        4095
+      ],
+      "square_argument_popcounts": [
+        4095,
+        1
+      ],
+      "square_argument_bits": [
+        4096,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 2558,
+        "add_sub_input_limb_spans": 8767,
+        "left_shift_calls": 1022,
+        "left_shift_output_limb_spans": 4287,
+        "recursive_square_calls": 1535,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 511,
+        "split_input_limb_spans": 1280,
+        "square_table_lookups": 1024
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "dense_all_ones",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        4096,
+        4095
+      ],
+      "square_argument_popcounts": [
+        4095,
+        1
+      ],
+      "square_argument_bits": [
+        4096,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 8195,
+        "add_sub_input_limb_spans": 1313025,
+        "boolean_calls": 12288,
+        "boolean_input_limb_spans": 1836674,
+        "left_shift_calls": 8192,
+        "left_shift_output_limb_spans": 1314433,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "set_bit_square_iterations": 4096
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "dense_all_ones",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        4096,
+        4095
+      ],
+      "square_argument_popcounts": [
+        4095,
+        1
+      ],
+      "square_argument_bits": [
+        4096,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 2567,
+        "add_sub_input_limb_spans": 8387,
+        "equal_input_square_shortcuts": 9,
+        "left_shift_calls": 1022,
+        "left_shift_output_limb_spans": 4287,
+        "recursive_multiply_calls": 28,
+        "recursive_square_calls": 1515,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 1,
+        "split_calls": 520,
+        "split_input_limb_spans": 1536,
+        "square_table_lookups": 1015
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "dense_all_ones",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        4096,
+        4095
+      ],
+      "square_argument_popcounts": [
+        4095,
+        1
+      ],
+      "square_argument_bits": [
+        4096,
+        1
+      ],
+      "counts": {
+        "add_sub_calls": 8190,
+        "add_sub_input_limb_spans": 1312383,
+        "boolean_calls": 8190,
+        "boolean_input_limb_spans": 1048320,
+        "left_shift_calls": 4095,
+        "left_shift_output_limb_spans": 788223,
+        "popcount_input_limb_spans": 256,
+        "set_bit_multiply_iterations": 4095
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "one_times_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        1,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2097,
+        2096
+      ],
+      "square_argument_bits": [
+        4095,
+        4095
+      ],
+      "counts": {
+        "add_sub_calls": 98053,
+        "add_sub_input_limb_spans": 151012,
+        "left_shift_calls": 39220,
+        "left_shift_output_limb_spans": 72676,
+        "recursive_square_calls": 58832,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 128,
+        "split_calls": 19610,
+        "split_input_limb_spans": 25660,
+        "square_table_lookups": 39222
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "one_times_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        1,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2097,
+        2096
+      ],
+      "square_argument_bits": [
+        4095,
+        4095
+      ],
+      "counts": {
+        "add_sub_calls": 8389,
+        "add_sub_input_limb_spans": 1347016,
+        "boolean_calls": 12579,
+        "boolean_input_limb_spans": 1883208,
+        "left_shift_calls": 8386,
+        "left_shift_output_limb_spans": 1353621,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 128,
+        "set_bit_square_iterations": 4193
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "one_times_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        1,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2097,
+        2096
+      ],
+      "square_argument_bits": [
+        4095,
+        4095
+      ],
+      "counts": {
+        "recursive_multiply_calls": 1
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "one_times_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        1,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2097,
+        2096
+      ],
+      "square_argument_bits": [
+        4095,
+        4095
+      ],
+      "counts": {
+        "add_sub_calls": 2,
+        "add_sub_input_limb_spans": 129,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 2,
+        "left_shift_calls": 1,
+        "left_shift_output_limb_spans": 128,
+        "popcount_input_limb_spans": 129,
+        "set_bit_multiply_iterations": 1
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "byte_times_random",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        5,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2093,
+        2092
+      ],
+      "square_argument_bits": [
+        4095,
+        4095
+      ],
+      "counts": {
+        "add_sub_calls": 98053,
+        "add_sub_input_limb_spans": 151013,
+        "left_shift_calls": 39220,
+        "left_shift_output_limb_spans": 72676,
+        "recursive_square_calls": 58832,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 128,
+        "split_calls": 19610,
+        "split_input_limb_spans": 25660,
+        "square_table_lookups": 39222
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "byte_times_random",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        5,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2093,
+        2092
+      ],
+      "square_argument_bits": [
+        4095,
+        4095
+      ],
+      "counts": {
+        "add_sub_calls": 8373,
+        "add_sub_input_limb_spans": 1344960,
+        "boolean_calls": 12555,
+        "boolean_input_limb_spans": 1880128,
+        "left_shift_calls": 8370,
+        "left_shift_output_limb_spans": 1352581,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 128,
+        "set_bit_square_iterations": 4185
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "byte_times_random",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        5,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2093,
+        2092
+      ],
+      "square_argument_bits": [
+        4095,
+        4095
+      ],
+      "counts": {
+        "add_sub_calls": 10,
+        "add_sub_input_limb_spans": 649,
+        "boolean_calls": 10,
+        "boolean_input_limb_spans": 10,
+        "left_shift_calls": 5,
+        "left_shift_output_limb_spans": 644,
+        "popcount_input_limb_spans": 129,
+        "recursive_multiply_calls": 1,
+        "set_bit_multiply_iterations": 5,
+        "short_operand_shift_add_shortcuts": 1
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "byte_times_random",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        5,
+        2097
+      ],
+      "square_argument_popcounts": [
+        2093,
+        2092
+      ],
+      "square_argument_bits": [
+        4095,
+        4095
+      ],
+      "counts": {
+        "add_sub_calls": 10,
+        "add_sub_input_limb_spans": 649,
+        "boolean_calls": 10,
+        "boolean_input_limb_spans": 10,
+        "left_shift_calls": 5,
+        "left_shift_output_limb_spans": 644,
+        "popcount_input_limb_spans": 129,
+        "set_bit_multiply_iterations": 5
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "midpoint_recursive",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        4094
+      ],
+      "square_argument_bits": [
+        4095,
+        4094
+      ],
+      "counts": {
+        "add_sub_calls": 7584,
+        "add_sub_input_limb_spans": 22400,
+        "left_shift_calls": 3032,
+        "left_shift_output_limb_spans": 9121,
+        "recursive_square_calls": 4550,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 128,
+        "split_calls": 1516,
+        "split_input_limb_spans": 3456,
+        "square_table_lookups": 3034
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "midpoint_set_bits",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        4094
+      ],
+      "square_argument_bits": [
+        4095,
+        4094
+      ],
+      "counts": {
+        "add_sub_calls": 8194,
+        "add_sub_input_limb_spans": 1312768,
+        "boolean_calls": 12285,
+        "boolean_input_limb_spans": 1836288,
+        "left_shift_calls": 8190,
+        "left_shift_output_limb_spans": 1313538,
+        "right_shift_calls": 1,
+        "right_shift_input_limb_spans": 128,
+        "set_bit_square_iterations": 4095
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "direct_karatsuba_with_basic_shortcuts",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        4094
+      ],
+      "square_argument_bits": [
+        4095,
+        4094
+      ],
+      "counts": {
+        "recursive_multiply_calls": 1
+      }
+    },
+    {
+      "width": 4096,
+      "pattern": "sparse_with_dense_difference",
+      "algorithm": "direct_sparse_shift_add",
+      "input_popcounts": [
+        1,
+        1
+      ],
+      "square_argument_popcounts": [
+        1,
+        4094
+      ],
+      "square_argument_bits": [
+        4095,
+        4094
+      ],
+      "counts": {
+        "add_sub_calls": 2,
+        "add_sub_input_limb_spans": 256,
+        "boolean_calls": 2,
+        "boolean_input_limb_spans": 256,
+        "left_shift_calls": 1,
+        "left_shift_output_limb_spans": 128,
+        "popcount_input_limb_spans": 129,
+        "set_bit_multiply_iterations": 1
+      }
+    }
+  ]
+}

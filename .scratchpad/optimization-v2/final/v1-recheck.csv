@@ -1,0 +1,39 @@
+# C clock() process CPU time; five samples, every measured trial >=20ms; deterministic xorshift seed 0x58554217
+# Parsing/reference checks excluded; public API allocations, dispatch, counters and result consumption included
+# Same-process implementation comparison; no hardware-cycle or multiply-free-target speed claim
+# Eight deterministic pairs per balanced/long/modular case; eight nearby pairs share one sum; each sparse/dense square is one structured value
+# Random magnitudes have their top and low bits forced: fixed-width odd draws; modular direct baseline truncates every shifted-add row
+# compiler=Apple LLVM 17.0.0 (clang-1700.0.13.5); CLOCKS_PER_SEC=1000000
+case,algorithm,x_bits,y_bits,median_ns_per_operation,min_ns_per_operation,max_ns_per_operation,last_repetitions,minimum_sample_ms,midpoint_calls,square_calls,recursive_squares,sparse_squares,complement_squares,blocked_products,cached_products
+balanced_8,auto_multiply,8,8,269.852,268.181,277.924,131072,35.151,1,2,0,0,0,0,0
+balanced_8,recursive_multiply,8,8,273.384,270.134,276.222,131072,35.407,1,2,0,0,0,0,0
+balanced_8,shift_add_reference,8,8,117.584,116.703,119.072,262144,30.593,0,0,0,0,0,0,0
+balanced_32,auto_multiply,32,32,710.907,699.982,730.652,32768,22.937,1,3,0,0,0,0,0
+balanced_32,recursive_multiply,32,32,609.344,608.749,612.076,65536,39.895,1,3,0,0,0,0,0
+balanced_32,shift_add_reference,32,32,417.114,410.645,429.733,65536,26.912,0,0,0,0,0,0,0
+balanced_256,auto_multiply,256,256,16203.613,16082.031,16568.359,2048,32.936,1,35,8,0,0,0,0
+balanced_256,recursive_multiply,256,256,13708.008,13536.621,13959.473,2048,27.723,1,35,8,0,0,0,0
+balanced_256,shift_add_reference,256,256,3323.364,3314.697,3328.735,8192,27.154,0,0,0,0,0,0,0
+balanced_1024,auto_multiply,1024,1024,150027.344,148562.500,151398.438,256,38.032,1,323,80,0,0,0,0
+balanced_1024,recursive_multiply,1024,1024,126269.531,125593.750,127996.094,256,32.152,1,323,80,0,0,0,0
+balanced_1024,shift_add_reference,1024,1024,20125.977,19856.445,20166.992,1024,20.333,0,0,0,0,0,0,0
+balanced_4096,auto_multiply,4096,4096,1369437.500,1357125.000,1376812.500,16,21.714,1,2915,728,0,0,0,0
+balanced_4096,recursive_multiply,4096,4096,1159281.250,1142312.500,1208031.250,32,36.554,1,2915,728,0,0,0,0
+balanced_4096,shift_add_reference,4096,4096,312500.000,311914.062,318687.500,128,20.396,0,0,0,0,0,0,0
+long_4096_by_67,auto_blocked,4096,7,138066.406,137640.625,140367.188,256,35.236,586,1124,0,0,0,1,0
+long_4096_by_67,unblocked_midpoint,4096,7,1371187.500,1352875.000,1435875.000,16,21.646,1,2915,728,0,0,0,0
+long_4096_by_67,shift_add_reference,4096,7,559.906,554.520,569.366,65536,36.341,0,0,0,0,0,0,0
+sparse3_4096,auto_square,4096,4096,931.030,918.396,940.216,32768,30.094,0,1,0,1,0,0,0
+sparse3_4096,recursive_square,4096,4096,29768.555,29380.859,30166.016,1024,30.086,0,101,37,0,0,0,0
+sparse3_4096,sparse_square,4096,4096,809.357,801.300,819.244,32768,26.257,0,1,0,1,0,0,0
+sparse3_4096,shift_add_reference,4096,4096,647.217,642.548,668.976,32768,21.055,0,0,0,0,0,0,0
+dense_4096,auto_square,4096,4096,830.963,816.803,851.501,32768,26.765,0,2,0,0,1,0,0
+dense_4096,recursive_square,4096,4096,2804.321,2760.986,2819.824,8192,22.618,0,7,6,0,0,0,0
+dense_4096,sparse_square,4096,4096,775125.000,763156.250,780500.000,32,24.421,0,1,0,1,0,0,0
+dense_4096,shift_add_reference,4096,4096,604109.375,598687.500,607734.375,64,38.316,0,0,0,0,0,0,0
+fixed_sum4096_nearby,ordinary_multiply,4095,4095,672562.500,667812.500,682468.750,32,21.370,1,1458,364,0,0,0,0
+fixed_sum4096_nearby,cached_multiply,4095,4095,1517.822,1506.409,1523.376,16384,24.681,0,1,0,0,0,0,1
+fixed_sum4096_nearby,cache_prepare,4095,4095,670218.750,662000.000,674562.500,32,21.184,0,1457,364,0,0,0,0
+low64_of_4096_operands,truncated_midpoint,4096,4096,1591.553,1562.439,1600.159,16384,25.599,1,2,0,2,0,0,0
+low64_of_4096_operands,reduce_then_truncated_shift_add,4096,4096,786.285,775.940,800.018,32768,25.426,0,0,0,0,0,0,0
+low64_of_4096_operands,full_midpoint_then_mask,4096,4096,1349625.000,1337687.500,1368500.000,16,21.403,1,2915,728,0,0,0,0

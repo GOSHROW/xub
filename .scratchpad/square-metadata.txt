@@ -1,0 +1,6 @@
+OpenSSL 3.6.3 9 Jun 2026
+compiler=Apple LLVM 17.0.0 (clang-1700.0.13.5)
+scalar_leaf_bits=32; table_bytes=512; samples=8; trials=5; target_ms=5.000; seed=0x8f1bbcde58425531
+Warm BIGNUM square throughput, including API and result-width checksum overhead. Power-of-two inputs are identical at each exact width; CSV records distinct counts. BN bitwise implementation scans every bit position. No cold-cache or weak-device cycle claim.
+verified_square_inputs=160; oracle=BN_sqr; all_candidate_checks=passed
+observable_checksum=1094953151

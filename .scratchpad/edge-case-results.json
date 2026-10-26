@@ -1,0 +1,140 @@
+{
+  "status": "passed",
+  "purpose": "Signed and boundary correctness only; proposed D shortcuts are not speed benchmarks.",
+  "all_ordered_signed_8bit_pairs": 65536,
+  "signed_8bit_paths": {
+    "equal_square_arguments_zero": 511,
+    "one_square": 1521,
+    "power_of_two_gap_no_squares": 5064,
+    "two_squares": 57436,
+    "unit_gap_no_squares": 1004
+  },
+  "additional_unique_signed_boundary_and_random_pairs": 1663,
+  "maximum_tested_operand_bits": 4097,
+  "unsigned_magnitude_model_checks": 280,
+  "quarter_square_residue_pairs": 65536,
+  "examples": [
+    {
+      "x": 1000000000,
+      "y": 1,
+      "a": 1,
+      "b": 1000000000,
+      "h": 500000000,
+      "d": 499999999,
+      "parity": 1,
+      "path": "unit_gap_no_squares",
+      "negative": false,
+      "square_arguments": [],
+      "result": 1000000000,
+      "full_square_bits": 58,
+      "result_magnitude_bits": 30
+    },
+    {
+      "x": 67,
+      "y": 68,
+      "a": 67,
+      "b": 68,
+      "h": 67,
+      "d": 0,
+      "parity": 1,
+      "path": "one_square",
+      "negative": false,
+      "square_arguments": [
+        67
+      ],
+      "result": 4556,
+      "full_square_bits": 13,
+      "result_magnitude_bits": 13
+    },
+    {
+      "x": -4523,
+      "y": -3412,
+      "a": 3412,
+      "b": 4523,
+      "h": 3967,
+      "d": 555,
+      "parity": 1,
+      "path": "two_squares",
+      "negative": false,
+      "square_arguments": [
+        3967,
+        555
+      ],
+      "result": 15432476,
+      "full_square_bits": 24,
+      "result_magnitude_bits": 24
+    },
+    {
+      "x": 4523,
+      "y": -3412,
+      "a": 3412,
+      "b": 4523,
+      "h": 3967,
+      "d": 555,
+      "parity": 1,
+      "path": "two_squares",
+      "negative": true,
+      "square_arguments": [
+        3967,
+        555
+      ],
+      "result": -15432476,
+      "full_square_bits": 24,
+      "result_magnitude_bits": 24
+    },
+    {
+      "x": 0,
+      "y": -4523,
+      "a": 0,
+      "b": 4523,
+      "h": 2261,
+      "d": 2261,
+      "parity": 1,
+      "path": "equal_square_arguments_zero",
+      "negative": false,
+      "square_arguments": [],
+      "result": 0,
+      "full_square_bits": 23,
+      "result_magnitude_bits": 0
+    },
+    {
+      "x": -67,
+      "y": -68,
+      "a": 67,
+      "b": 68,
+      "h": 67,
+      "d": 0,
+      "parity": 1,
+      "path": "one_square",
+      "negative": false,
+      "square_arguments": [
+        67
+      ],
+      "result": 4556,
+      "full_square_bits": 13,
+      "result_magnitude_bits": 13
+    },
+    {
+      "x": 512,
+      "y": 1,
+      "a": 1,
+      "b": 512,
+      "h": 256,
+      "d": 255,
+      "parity": 1,
+      "path": "unit_gap_no_squares",
+      "negative": false,
+      "square_arguments": [],
+      "result": 512,
+      "full_square_bits": 17,
+      "result_magnitude_bits": 10
+    }
+  ],
+  "notes": [
+    "Full exact squares can be wider than the exact final product.",
+    "Bounded modulo squares are exact after subtraction if the product fits the proven output width.",
+    "Modulo arithmetic does not make out-of-range native shifts or signed overflow valid.",
+    "Python models the proposed C magnitude rule; this is not a native signed-minimum or buffer test.",
+    "Previous unsigned native benchmarks and their timings are unchanged."
+  ]
+}

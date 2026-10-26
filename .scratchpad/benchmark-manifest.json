@@ -1,0 +1,75 @@
+{
+  "system": "Darwin",
+  "release": "25.6.0",
+  "machine": "arm64",
+  "files": {
+    ".scratchpad/bench_large.c": {
+      "bytes": 21242,
+      "sha256": "ec80e080fd9f5656cf010501fea171cd4a40e9aa853316653448a532e9a993f1"
+    },
+    ".scratchpad/bench_small.c": {
+      "bytes": 14814,
+      "sha256": "8350baca44e7cb1bc6a7765fb597c07ebaefd566c64a800a28e8569e7a5c7c84"
+    },
+    ".scratchpad/bench_squares.c": {
+      "bytes": 7876,
+      "sha256": "6f95061ea650283c3d1c3af8b740d82e08fb5eb6fe0930abeac07c9cd4d3d763"
+    },
+    ".scratchpad/cost-model.py": {
+      "bytes": 8085,
+      "sha256": "ef9000595f3136c8fc0a00e095f43d6e84ed7f5593f965d43b498c90a8279271"
+    },
+    ".scratchpad/large-bench": {
+      "bytes": 71704,
+      "sha256": "8363352ce17648a26b64cbc98777e572ef2d4e6beabfe8c38214a1db3bbeb0d4"
+    },
+    ".scratchpad/large-bench-leaf32": {
+      "bytes": 71936,
+      "sha256": "71710fc61a801c6c299219f8053dcaa78ff54d1ff58403f2346f91d2285c821e"
+    },
+    ".scratchpad/large-bench-leaf32.s": {
+      "bytes": 193383,
+      "sha256": "fb6d54867ced298088f3a5a55a2f263c0341be4046a6753eda1f1e336b668f5f"
+    },
+    ".scratchpad/large-bench.s": {
+      "bytes": 181852,
+      "sha256": "c7e95dcf3fb3116961fbf3a4fc970ee75b1f4fa4dc5f0e5b522564cc2200e3fb"
+    },
+    ".scratchpad/large-leaf32-results.csv": {
+      "bytes": 25969,
+      "sha256": "647ce5ec9e5b8d2924fa96d9566e95350379d53292065f6729d72e13cb81f4bc"
+    },
+    ".scratchpad/large-results.csv": {
+      "bytes": 26188,
+      "sha256": "2f80909bab3107459f224de50b257725f0e23d3af844e9ebf667232ed2c9b095"
+    },
+    ".scratchpad/small-bench": {
+      "bytes": 51704,
+      "sha256": "6761884fc425d87746ea2ccbe6779d4ad629cf0c6f55d83655797372fcdd0b11"
+    },
+    ".scratchpad/small-bench.s": {
+      "bytes": 62656,
+      "sha256": "31f70c1e99ce69f120698602cddf718ba84d75525e3aafb48f9dbe4d7bf2e704"
+    },
+    ".scratchpad/small-results.csv": {
+      "bytes": 24040,
+      "sha256": "63a17a41def46c0ec6328bbf752a1febb7bdeb2ded4f174051ac007677068128"
+    },
+    ".scratchpad/square-bench": {
+      "bytes": 73328,
+      "sha256": "96b250f69d0b49a37c2855edb6b656da71261a32f4888a59969e548a87ee3bee"
+    },
+    ".scratchpad/square-results.csv": {
+      "bytes": 7228,
+      "sha256": "6f501e42d6bb828ed1d971cceb75e29bf35cd681ac65f35eca38302f828e9bc3"
+    },
+    ".scratchpad/summarize_benchmarks.py": {
+      "bytes": 16018,
+      "sha256": "3662f38151f9fc5f7de502452bf2df4d3c90598abc25dd68fe675e3180e0f40e"
+    },
+    ".scratchpad/verify_midpoint.py": {
+      "bytes": 9928,
+      "sha256": "1883c533499508dbeb9a62967d71b5c002d8830ededaedbee52014c49d4fa767"
+    }
+  }
+}

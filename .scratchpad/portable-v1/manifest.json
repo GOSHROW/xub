@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-26",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "compiler": "Apple clang version 17.0.0 (clang-1700.0.13.5)",
+  "build_flags": "-O2 -g -std=c11 -Wall -Wextra -Wpedantic -Werror",
+  "commands": [
+    "make test",
+    "make ubsan",
+    "make benchmark"
+  ],
+  "validation": {
+    "c_checks": 1583,
+    "full_oracle_products": 69303,
+    "ubsan_quick_products": 3275,
+    "asan": "Runtime stalls before main; no pass claimed",
+    "latex": "No TeX compiler installed; source structurally checked only"
+  },
+  "source_sha256": {
+    "src/xub_int.c": "525177df3495cd8759eeeb3996fe872d7fbd6bba8b22becc7406e2cb36287f2f",
+    "src/xub_mul.c": "7f1501fba784b2a2f6f6871914d205989a114bc7ca243849f53a738ff26094d6",
+    "src/main.c": "7c0c172c9695f5e3090217f542604b54eda2c7cdc2adee16a8e67fd56c22bbd1",
+    "src/xub_internal.h": "96d016d285fe160029f05e2a37db1d8b4eced1b4033b9ac61635d412d4d349da",
+    "include/xub.h": "d47005de9f258cb829877c7714a3bdf9e4dd4b231e3eab176b4116f73b3a738b",
+    "benchmarks/bench_xub.c": "27281462eaadc981d84a7e5e10414debb4925b8ea66926061f8c19b5cc627dee",
+    "tests/test_xub.c": "8602890b174665ebad70e111bcc4c360ee1de61c697a209d95d0bb4b0cd93574",
+    "tests/oracle.py": "29652ba2b87ea97d7b2d655ddad7d6efdaa26d1fa0eba66b514f3a60a6fd0139",
+    "Makefile": "254e1423aaba0999bc2b1835f03866853e8584f8469f221fb79b97f54544f8f2"
+  },
+  "result_sha256": {
+    "benchmarks.csv": "5ec74deb17c2b2f6b7fe861723ff8df1eddb6b16c716f0105f45d4f5eb0b1666"
+  }
+}

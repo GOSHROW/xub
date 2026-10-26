@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-26",
+  "scope": "Mac host only, no multiplication-limited target or assembly measurements",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "compiler": "Apple clang version 17.0.0 (clang-1700.0.13.5)",
+  "flags": "-O2 -g -std=c11 -Wall -Wextra -Wpedantic -Werror",
+  "source_sha256": {
+    "Makefile": "ec1ec5565a6d770179a7150a3fc4e15de8fe31b098787c229c6f3ddb2c182a33",
+    "include/xub.h": "0d1dcebfb8c1f0a30df4339367a4b696141aa5fddd3210d9b28e95839d41804f",
+    "src/xub_mul.c": "7d94c45ac02a17595f482cd7729ae4cfcdeb98eefcc85b3443a809cc8d870b62",
+    "src/main.c": "fef6acbb176efc562e16371461f3505b73028232cfbb41a87a961d82d355cf5d",
+    "src/xub_int.c": "fbfd145dfab6989a45713ac9a055eb2ee4dd1aa0e71c94aa1fd97c78790c6bfe",
+    "src/xub_internal.h": "96d016d285fe160029f05e2a37db1d8b4eced1b4033b9ac61635d412d4d349da",
+    "tests/test_xub.c": "cd401704732ab323f6ddab294373a59989a0176e6f78475c7f3ce4dc507e7078",
+    "tests/oracle.py": "29652ba2b87ea97d7b2d655ddad7d6efdaa26d1fa0eba66b514f3a60a6fd0139",
+    "benchmarks/alloc_profile.h": "47e875d1f469b2e5994f8beecd82c22ad072b191e3d708b9886c9c1902a8a64b",
+    "benchmarks/profile_xub.c": "03d3afbfa5c26cda8d3083a2028e88af759a89666fdc06c8814c81b7bea2c9f4",
+    "benchmarks/bench_xub.c": "2b032225a7dc1a3e42c028ada42e1fba8f958ccbd2811821802c094671423063",
+    "benchmarks/alloc_profile.c": "8248cce02f9764d77ebfb40298a85941f01cb121796eaecd388f6826f5d5f831",
+    "benchmarks/tune_xub.c": "0685a445f16ec4bdc5a2fe18d33156bafe4918375db02b14cda2a42325f25afd"
+  },
+  "result_sha256": {
+    "benchmarks.csv": "aceb70fd201a9192a720ccf58abd8f10775c932a3bfc0c0c3608bc0c2df8c910",
+    "v1-recheck.csv": "ab16945b093a9fefce163cbb5f60700eeb41617ba98925414816c43ed5de48ae",
+    "tuning.csv": "4b10467d5c7fd160e4a147276fcb3c4b650519b69b789c0120110e04a050b92a",
+    "tuning-summary.json": "6ac5026b6431d32246ece358800363d03e9bd7d58bd263bc596dd29fe6792c8e",
+    "allocations.csv": "b4c1e25ac717dc20dd257bc912c133a3972ab06578086c7c20e15d23e8e57d1f",
+    "allocations-v1.csv": "cb90cf4963ffe377ec1f529625e57fe497b8bb1215c166a7672f95213048439b",
+    "oracle-results.json": "994b8b1ab6f240db0f6d145591e2680e4be98e3ef8113f9caff41edc2b40faa1",
+    "ubsan-oracle-results.json": "e957b9d89f4415bb867f77b01102ab088cae878abbb824aef128566e9f174038"
+  },
+  "validation": {
+    "c_checks": 12966,
+    "oracle_products": 69303,
+    "ubsan_products": 3275,
+    "profile_checks": 673,
+    "cold_failure_positions": 49,
+    "warm_growth_failure_positions": 34,
+    "ASan": "Known host startup hang; no pass claimed"
+  },
+  "defaults": {
+    "leaf_bits": 32,
+    "sparse_limit": 32,
+    "dense_complement": 1,
+    "block_ratio": 4
+  },
+  "commands": [
+    "make test",
+    "make ubsan",
+    "make profile",
+    "make profile-v1",
+    "make tune",
+    "make benchmark"
+  ],
+  "baseline_source": ".scratchpad/portable-v1/source",
+  "notes": [
+    "Tuner baseline explicitly fixed at64/8/1/4, selection uses training only",
+    "Pass1 preserved separately; pass2 uses fresh held-out seeds",
+    "Allocator profiling is an isolated intrusive build, not used for timing",
+    "Direct timing comparators include retained scratch variants"
+  ],
+  "documentation_sha256": {
+    "README.md": "86e47de6c7260ba5d22c70a1a05a2863c1beb63a8e38ba96b5a22aa1f23b16d4",
+    "thesis.md": "3ab8f37e49c1d0dd24721d8f57d267ac07a8a24f4a95e4cad45ce262b87b637e",
+    "thesis.tex": "2be1de948d8c4a1b0ad565891688b56630935103386bbfc4776c4d06a564fe62",
+    "optimization-results.md": "1a8a00edb65700098144692abf92f83c3e43b76e094719f140f1f7e5a579b049",
+    "discussion.md": "2d129a4b095fc0b1bd5e0210e4557e77a3b1770b138c3cec06b4420ed59185a6",
+    "research.md": "4ab05a1f03a1914fcad11dd7e367da5949531688d5b4dd7c677390d43d420ee6",
+    "improvements.md": "d59d2d5424eb36a51e5fb44e7988b80401918834b2c07fe90e840f9222dee2b9"
+  }
+}

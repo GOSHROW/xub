@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "purpose": "Correctness of proposed identities only; no speed measurements.",
+  "unsigned_16bit_values_per_square_identity": 65536,
+  "ordered_8bit_pairs_per_product_and_difference_identity": 65536,
+  "larger_product_pairs_per_identity": 49,
+  "larger_square_values_per_identity": 49,
+  "maximum_product_operand_bits": 4096,
+  "maximum_square_input_bits": 8192,
+  "notes": [
+    "Fused differences are signed internally; a native port needs explicit signed-magnitude handling.",
+    "A four-bit leaf forces fused recursion in the exhaustive eight-bit sweep.",
+    "Complement uses an independent square of r and is not yet an adaptive recursive dispatcher.",
+    "Powers of two have complement r == z and need a termination guard in such a dispatcher.",
+    "Python chunk assembly verifies arithmetic, not the proposed linear-time limb implementation."
+  ]
+}

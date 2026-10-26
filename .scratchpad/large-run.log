@@ -1,0 +1,46 @@
+OpenSSL 3.6.3 9 Jun 2026
+compiler=Apple LLVM 17.0.0 (clang-1700.0.13.5)
+seed=0x8f1bbcde58425531, trials=5, samples=8, target_ms=5.000
+Prototype uses shared OpenSSL BIGNUM primitives and reusable BN_CTX; API overhead is included. Warm tables/allocations. CPU frequency and core affinity are uncontrolled.
+verified 65536 table products and 433 BIGNUM pairs across all 12 product algorithms
+finished bits=64 pattern=random
+finished bits=64 pattern=near
+finished bits=64 pattern=equal
+finished bits=64 pattern=sparse
+finished bits=64 pattern=dense
+finished bits=64 pattern=short8
+finished bits=64 pattern=one
+finished bits=64 pattern=power2
+finished bits=256 pattern=random
+finished bits=256 pattern=near
+finished bits=256 pattern=equal
+finished bits=256 pattern=sparse
+finished bits=256 pattern=dense
+finished bits=256 pattern=short8
+finished bits=256 pattern=one
+finished bits=256 pattern=power2
+finished bits=1024 pattern=random
+finished bits=1024 pattern=near
+finished bits=1024 pattern=equal
+finished bits=1024 pattern=sparse
+finished bits=1024 pattern=dense
+finished bits=1024 pattern=short8
+finished bits=1024 pattern=one
+finished bits=1024 pattern=power2
+finished bits=4096 pattern=random
+finished bits=4096 pattern=near
+finished bits=4096 pattern=equal
+finished bits=4096 pattern=sparse
+finished bits=4096 pattern=dense
+finished bits=4096 pattern=short8
+finished bits=4096 pattern=one
+finished bits=4096 pattern=power2
+finished bits=16384 pattern=random
+finished bits=16384 pattern=near
+finished bits=16384 pattern=equal
+finished bits=16384 pattern=sparse
+finished bits=16384 pattern=dense
+finished bits=16384 pattern=short8
+finished bits=16384 pattern=one
+finished bits=16384 pattern=power2
+observable checksum=195194406

@@ -1,0 +1,13 @@
+{
+  "purpose": "First dispatch-tuning pass, retained before refining classification; not final defaults",
+  "source_sha256": {
+    "include/xub.h": "24e9c1de48128b072149879152defbc204ff10a97a3a7e5b7323717a7315f8aa",
+    "src/xub_int.c": "fbfd145dfab6989a45713ac9a055eb2ee4dd1aa0e71c94aa1fd97c78790c6bfe",
+    "src/xub_mul.c": "b8f0bee3fc4bb308f057a24b24cddf9c7d8189a60b2a1fa75250ce17ccb2ede5",
+    "src/xub_internal.h": "96d016d285fe160029f05e2a37db1d8b4eced1b4033b9ac61635d412d4d349da",
+    "benchmarks/tune_xub.c": "b88a9dbb9990e3244c5d233a401c771d89d445e90122c8eb6a83599e7908d504",
+    "benchmarks/profile_xub.c": "567d3d736c0c35f8a838dcb012ffde06cb32615c7c1b40e38da4350c2ce7cc75",
+    "benchmarks/alloc_profile.c": "8248cce02f9764d77ebfb40298a85941f01cb121796eaecd388f6826f5d5f831",
+    "benchmarks/alloc_profile.h": "47e875d1f469b2e5994f8beecd82c22ad072b191e3d708b9886c9c1902a8a64b"
+  }
+}

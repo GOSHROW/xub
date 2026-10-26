@@ -1,0 +1,46 @@
+# Intrusive allocation profile; no timing or RSS measurements.
+# Build: archived v1; context trim/free compatibility has no owned workspace to release.
+# Only core library allocation calls are intercepted; inputs and independent reference preparation are outside each interval.
+# Bytes are requested live payload, excluding profiler headers, allocator overhead and allocator-internal transient copies.
+# Baseline includes retained inputs, expected results, output and cache; peaks include that baseline. free_calls includes free(NULL).
+# One deterministic fixed-width odd pair per case; steady row follows cold, first repeat and three additional calls.
+# Library defaults: square_mode=0, leaf_bits=64, sparse_limit=8, block_ratio=4, dense_complement=1.
+case,phase,x_bits,y_bits,baseline_live_bytes,baseline_live_blocks,malloc_calls,calloc_calls,realloc_calls,free_calls,allocation_attempts,allocation_failures,fresh_allocations,growth_reallocations,shrink_reallocations,unchanged_reallocations,released_allocations,requested_bytes,live_bytes,peak_live_bytes,peak_increment_bytes,live_blocks,peak_live_blocks
+balanced_4096,fixture_baseline,4096,4096,3072,3,0,0,0,0,0,0,0,0,0,0,0,0,3072,3072,0,3,3
+balanced_4096,cold_call,4096,4096,3072,3,0,0,14567,13850,14567,0,8746,5821,0,0,8745,440160,5120,16128,13056,4,51
+balanced_4096,first_repeat,4096,4096,5120,4,0,0,14567,13850,14567,0,8746,5821,0,0,8746,440160,5120,18176,13056,4,52
+balanced_4096,steady_repeat_after_five_calls,4096,4096,5120,4,0,0,14567,13850,14567,0,8746,5821,0,0,8746,440160,5120,18176,13056,4,52
+balanced_4096,context_trim,4096,4096,5120,4,0,0,0,0,0,0,0,0,0,0,0,0,5120,5120,0,4,4
+balanced_4096,context_free_after_trim,4096,4096,5120,4,0,0,0,0,0,0,0,0,0,0,0,0,5120,5120,0,4,4
+balanced_4096,fixture_cleanup,4096,4096,5120,4,0,0,0,7,0,0,0,0,0,0,4,0,0,5120,0,0,4
+balanced_8,fixture_baseline,8,8,24,3,0,0,0,0,0,0,0,0,0,0,0,0,24,24,0,3,3
+balanced_8,cold_call,8,8,24,3,0,0,6,17,6,0,6,0,0,0,5,48,32,72,48,4,9
+balanced_8,first_repeat,8,8,32,4,0,0,6,17,6,0,6,0,0,0,6,48,32,80,48,4,10
+balanced_8,steady_repeat_after_five_calls,8,8,32,4,0,0,6,17,6,0,6,0,0,0,6,48,32,80,48,4,10
+balanced_8,context_trim,8,8,32,4,0,0,0,0,0,0,0,0,0,0,0,0,32,32,0,4,4
+balanced_8,context_free_after_trim,8,8,32,4,0,0,0,0,0,0,0,0,0,0,0,0,32,32,0,4,4
+balanced_8,fixture_cleanup,8,8,32,4,0,0,0,7,0,0,0,0,0,0,4,0,0,32,0,0,4
+long_4096_by_67,fixture_baseline,4096,7,1544,3,0,0,0,0,0,0,0,0,0,0,0,0,1544,1544,0,3,3
+long_4096_by_67,cold_call,4096,7,1544,3,0,0,2871,6937,2871,0,2864,7,0,0,2863,25448,2568,3144,1600,4,13
+long_4096_by_67,first_repeat,4096,7,2568,4,0,0,2871,6937,2871,0,2864,7,0,0,2864,25448,2568,4168,1600,4,14
+long_4096_by_67,steady_repeat_after_five_calls,4096,7,2568,4,0,0,2871,6937,2871,0,2864,7,0,0,2864,25448,2568,4168,1600,4,14
+long_4096_by_67,context_trim,4096,7,2568,4,0,0,0,0,0,0,0,0,0,0,0,0,2568,2568,0,4,4
+long_4096_by_67,context_free_after_trim,4096,7,2568,4,0,0,0,0,0,0,0,0,0,0,0,0,2568,2568,0,4,4
+long_4096_by_67,fixture_cleanup,4096,7,2568,4,0,0,0,7,0,0,0,0,0,0,4,0,0,2568,0,0,4
+fixed_sum4096_nearby,fixture_baseline,4095,4095,3584,4,0,0,0,0,0,0,0,0,0,0,0,0,3584,3584,0,4,4
+fixed_sum4096_nearby,cache_prepare_cold,4095,4095,3584,4,0,0,7288,6925,7288,0,4374,2914,0,0,4372,221456,6144,13056,9472,6,48
+fixed_sum4096_nearby,cache_prepare_repeat,4095,4095,6144,6,0,0,7288,6925,7288,0,4374,2914,0,0,4374,221456,6144,15616,9472,6,50
+fixed_sum4096_nearby,prepare_context_trim,4095,4095,6144,6,0,0,0,0,0,0,0,0,0,0,0,0,6144,6144,0,6,6
+fixed_sum4096_nearby,cold_call,4095,4095,6144,6,0,0,6,9,6,0,5,1,0,0,4,4624,8192,9744,3600,7,11
+fixed_sum4096_nearby,first_repeat,4095,4095,8192,7,0,0,6,9,6,0,5,1,0,0,5,4624,8192,11792,3600,7,12
+fixed_sum4096_nearby,steady_repeat_after_five_calls,4095,4095,8192,7,0,0,6,9,6,0,5,1,0,0,5,4624,8192,11792,3600,7,12
+fixed_sum4096_nearby,context_trim,4095,4095,8192,7,0,0,0,0,0,0,0,0,0,0,0,0,8192,8192,0,7,7
+fixed_sum4096_nearby,context_free_after_trim,4095,4095,8192,7,0,0,0,0,0,0,0,0,0,0,0,0,8192,8192,0,7,7
+fixed_sum4096_nearby,fixture_cleanup,4095,4095,8192,7,0,0,0,7,0,0,0,0,0,0,7,0,0,8192,0,0,7
+low64_of_4096,fixture_baseline,4096,4096,3072,3,0,0,0,0,0,0,0,0,0,0,0,0,3072,3072,0,3,3
+low64_of_4096,cold_call,4096,4096,3072,3,0,0,10,12,10,0,10,0,0,0,9,88,3080,3144,72,4,11
+low64_of_4096,first_repeat,4096,4096,3080,4,0,0,10,12,10,0,10,0,0,0,10,88,3080,3152,72,4,12
+low64_of_4096,steady_repeat_after_five_calls,4096,4096,3080,4,0,0,10,12,10,0,10,0,0,0,10,88,3080,3152,72,4,12
+low64_of_4096,context_trim,4096,4096,3080,4,0,0,0,0,0,0,0,0,0,0,0,0,3080,3080,0,4,4
+low64_of_4096,context_free_after_trim,4096,4096,3080,4,0,0,0,0,0,0,0,0,0,0,0,0,3080,3080,0,4,4
+low64_of_4096,fixture_cleanup,4096,4096,3080,4,0,0,0,7,0,0,0,0,0,0,4,0,0,3080,0,0,4

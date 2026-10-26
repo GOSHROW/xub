@@ -1,0 +1,7 @@
+compiler=17.0.0 (clang-1700.0.13.5); pointer_bits=64; pairs=4096; trials=7; target_ns=5000000; seed=0x584255896d; all_tables_first_build_ns=89000
+Verification passed: 65536 ordered eight-bit pairs, 100000 random 32-bit pairs, 196 boundary pairs, 65536 inputs per square.
+table_build name=square8 bytes=512 repeats=128 trials=7 median_ns=179.688 min_ns=171.875 max_ns=187.500 warm_rebuild=true
+table_build name=square16 bytes=262144 repeats=128 trials=7 median_ns=49695.312 min_ns=49203.125 max_ns=57742.188 warm_rebuild=true
+table_build name=quarter8 bytes=1024 repeats=128 trials=7 median_ns=367.188 min_ns=328.125 max_ns=367.188 warm_rebuild=true
+table_build name=product8 bytes=131072 repeats=128 trials=7 median_ns=2648.438 min_ns=2632.812 max_ns=2773.438 warm_rebuild=true
+observable_checksum=10767094327019124687
